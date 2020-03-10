@@ -52,5 +52,12 @@ module.exports = {
 			"logical": "parens-new-line",
 			"prop": "parens-new-line"
 		}],
+		"object-curly-spacing": ["error", "always"],
+		"no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    }]
 	}
 };
