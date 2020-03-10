@@ -6,37 +6,10 @@ const MainContainer = styled.div`
   margin-top: 7rem;
 `;
 
-const TitleBorder = styled.div`
-  position: absolute;
-  font-size: 4rem;
-  font-weight: 500;
-  bottom: 3%;
-  right: 6%;
-  displey:flex;
-  flex-flow: column;
-`;
-const TitleBox = styled.div`
-  margin: 5rem auto;
-  width: 35%;
-  height: 0;
-  padding-top: 35%;
-  border: 1.3rem solid #BF4E58;
-  position:relative;
-
-  @media (max-width: 900px) {
-    width: 300px;
-    padding-top: 300px;
-  }
-`;
-
 type TitleTextProps = {
   fontSmall?: boolean;
   children: string;
 }
-const TitleText = styled.div<TitleTextProps>`
-  text-align: right;
-  font-size: ${props => props.fontSmall ? '3rem' : ''};
-`;
 
 const IntroWrap = styled.div`
   padding: 3rem;
@@ -72,12 +45,6 @@ const ThumbnailDesc = styled.div`
 const Main = () => {
 	return (
 		<MainContainer>
-			<TitleBox>
-				<TitleBorder>
-					<TitleText>청년부</TitleText>
-					<TitleText fontSmall>자양교회</TitleText>
-				</TitleBorder>
-			</TitleBox>
 			<IntroWrap>
 				<TextCenterDiv>사역현장</TextCenterDiv>
 				<FlexBox>
