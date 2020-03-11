@@ -5,6 +5,9 @@ import GlobalStyle from './GlobalStyle';
 import Intro from './Intro';
 import IntroContent from './IntroContent';
 import WorshipInfo from './WorshipInfo';
+import Banner from './Banner';
+import Location from './Location';
+import Footer from './Footer';
 
 function App() {
 	return (
@@ -15,7 +18,11 @@ function App() {
 				<IntroContent />
 			</Intro>
 			<WorshipInfo />
-			{/* <Main></Main> */}
+			<Banner />
+			<Location />
+			<Footer>
+				<div>footer</div>
+			</Footer>
 		</>
 	);
 }

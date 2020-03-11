@@ -13,6 +13,8 @@ const TextBox = styled.div`
 const IntroContentBox = styled.div`
   margin: auto;
   width: 35%;
+  min-width: 300px;
+  min-height: 340px;
   height: 0;
   padding-top: 35%;
   border: 1.3rem solid #BF4E58;
@@ -21,7 +23,7 @@ const IntroContentBox = styled.div`
 
   @media (max-width: 900px) {
     width: 300px;
-    padding-top: 300px;
+    height: 340px;
   }
 `;
 
