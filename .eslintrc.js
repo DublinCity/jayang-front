@@ -54,6 +54,10 @@ module.exports = {
 		}],
 		"object-curly-spacing": ["error", "always"],
 		"no-unused-vars": "off",
+		"react/self-closing-comp": ["error", {
+			"component": true,
+			"html": true
+		}],
     "@typescript-eslint/no-unused-vars": ["error", {
       "vars": "all",
       "args": "after-used",
