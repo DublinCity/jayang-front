@@ -6,10 +6,10 @@ import styled from 'styled-components';
 
 const COLOR_LIST = [
 	'#c92a2a',
-	'#862e9c',
-	'#5f3dc4',
-	'#0b7285',
-	'#ffa94d',
+	'#F2A25C',
+	'#8C2E0B',
+	'#F2594B',
+	'#400606',
 ];
 
 const BannerTexts = [

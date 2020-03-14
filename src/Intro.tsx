@@ -7,6 +7,9 @@ type IntroProps = {
 }
 
 const IntroWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: url(${mainBgImg}) 0% 50%/cover fixed;
 	height: 100%;
 `;

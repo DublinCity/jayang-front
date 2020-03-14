@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Navigation from './Header';
 // import Main from './Main';
 import GlobalStyle from './GlobalStyle';
 import Intro from './Intro';
@@ -13,16 +13,14 @@ function App() {
 	return (
 		<>
 			<GlobalStyle />
+			<Navigation />
 			<Intro>
-				<Header></Header>
 				<IntroContent />
 			</Intro>
 			<WorshipInfo />
 			<Banner />
 			<Location />
-			<Footer>
-				<div>footer</div>
-			</Footer>
+			<Footer />
 		</>
 	);
 }

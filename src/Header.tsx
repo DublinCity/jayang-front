@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderWrap = styled.header`
-	color: #868e96;
-	background-color: rgba(242, 235, 235, 0.3);
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	color: #fff5f5;
+	background-color: #BF4E58;
+	box-shadow: 0px 2px 10px -1px rgba(33,37,41,1);
 	padding: 1.5rem 2rem;
 	font-size: 1.5rem;
 `;
 
-const inlineBlock = 'display: inline-flex;';
-
-const Logo = styled.div`${inlineBlock}`;
+const Logo = styled.div``;
 const Navigation = styled.nav`
-	${inlineBlock}
-	position: absolute;
-	right: 0;
 `;
 const NavigationSpan= styled.span`
 	margin: 0 0.8rem;
