@@ -37,7 +37,8 @@ const TitleText = styled.div<TitleTextProps>`
 `;
 
 const IntroContentWrapper = styled.div`
-  padding: 7rem;
+  position: relative;
+  top: 4rem;
 `;
 
 const IntroContent = () => (
