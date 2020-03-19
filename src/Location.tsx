@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import locationImg from '../src/img/location.jpg';
 
 const LocationWrapper = styled.div`
   height: 100%;
@@ -7,41 +8,46 @@ const LocationWrapper = styled.div`
 `;
 
 const LocationTitle = styled.div`
-	font-size: 1.5rem;
-	margin-bottom: 4rem;
-	font-weight: bold;
+	font-size: 1rem;
+	font-weight: 300;
 	text-align: center;
 	color: #495057;
 `;
-const LoactionMap = styled.div<{id:string}>`
+const LoactionMap = styled.div<{backgroundImg: string}>`
   margin: auto;
-	border: 1.4px solid #ced4da;
-  height: 80%;
+  height: 100%;
+	background-image: url(${props => props.backgroundImg});
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: contain;
 `;
 
 const Location = () => {
-	useEffect(() => {
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(37.5374388,127.0753194),
-			level: 5
-		};
+	/**
+	 * 카카오 지도 서비스
+	 */
+	// useEffect(() => {
+	// 	var container = document.getElementById('map');
+	// 	var options = {
+	// 		center: new kakao.maps.LatLng(37.5374388,127.0753194),
+	// 		level: 5
+	// 	};
 
-		var kakaoMap = new kakao.maps.Map(container, options);
-		kakaoMap.setMinLevel(3);
-		kakaoMap.setMaxLevel(5);
+	// 	var kakaoMap = new kakao.maps.Map(container, options);
+	// 	kakaoMap.setMinLevel(3);
+	// 	kakaoMap.setMaxLevel(5);
 
-		// 지도에 마커를 생성하고 표시한다
-		new kakao.maps.Marker({
-			position: new kakao.maps.LatLng(37.5374388,127.0753194), // 마커의 좌표
-			map: kakaoMap // 마커를 표시할 지도 객체
-		});
-	}, []);
+	// 	// 지도에 마커를 생성하고 표시한다
+	// 	new kakao.maps.Marker({
+	// 		position: new kakao.maps.LatLng(37.5374388,127.0753194), // 마커의 좌표
+	// 		map: kakaoMap // 마커를 표시할 지도 객체
+	// 	});
+	// }, []);
 
 	return (
-		<LocationWrapper >
-			<LocationTitle>수고하고 짐진 자들아. 오라 내가 너희를 쉬게 하리라</LocationTitle>
-			<LoactionMap id="map" />
+		<LocationWrapper id="location">
+			<LocationTitle>오라이 오라이 여기로 오라이</LocationTitle>
+			<LoactionMap backgroundImg={locationImg} />
 		</LocationWrapper>
 	);
 };

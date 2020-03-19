@@ -48,10 +48,10 @@ const Main = () => {
 			<IntroWrap>
 				<TextCenterDiv>사역현장</TextCenterDiv>
 				<FlexBox>
-					<ThumbnailWrap><ThumbnailImg src={thumbnail}></ThumbnailImg><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
-					<ThumbnailWrap><ThumbnailImg src={thumbnail}></ThumbnailImg><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
-					<ThumbnailWrap><ThumbnailImg src={thumbnail}></ThumbnailImg><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
-					<ThumbnailWrap><ThumbnailImg src={thumbnail}></ThumbnailImg><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
+					<ThumbnailWrap><ThumbnailImg src={thumbnail} /><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
+					<ThumbnailWrap><ThumbnailImg src={thumbnail} /><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
+					<ThumbnailWrap><ThumbnailImg src={thumbnail} /><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
+					<ThumbnailWrap><ThumbnailImg src={thumbnail} /><ThumbnailDesc>열심히 하고 있습니다.</ThumbnailDesc></ThumbnailWrap>
 				</FlexBox>
 			</IntroWrap>
 		</MainContainer>

@@ -4,9 +4,10 @@ import Navigation from './Header';
 import GlobalStyle from './GlobalStyle';
 import Intro from './Intro';
 import IntroContent from './IntroContent';
-import WorshipInfo from './WorshipInfo';
+import CoreValue from './CoreValue';
 import Banner from './Banner';
 import Location from './Location';
+import Community from './Community';
 import Footer from './Footer';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
 			<Intro>
 				<IntroContent />
 			</Intro>
-			<WorshipInfo />
+			<Community />
+			<CoreValue />
 			<Banner />
 			<Location />
 			<Footer />

@@ -45,8 +45,8 @@ const IntroContent = () => (
 	<IntroContentWrapper>
 		<IntroContentBox className="intro-content">
 			<TextBox>
-				<TitleText>청년부</TitleText>
-				<TitleText fontSmall>자양교회</TitleText>
+				<TitleText>마! 이게</TitleText>
+				<TitleText fontSmall>자양교회가</TitleText>
 			</TextBox>
 		</IntroContentBox>
 	</IntroContentWrapper>

@@ -38,7 +38,7 @@ const Banner = () => {
 	const [index, setIndex] = useState(0);
 
 	return (
-		<BannerWrapper>
+		<BannerWrapper id="banner">
 			<AutoPlaySwipeableViews enableMouseEvents index={index} onChangeIndex={setIndex} interval={2000}>
 				{BannerTexts.map((banner,idx) => <BannerItem key={banner} idx={idx}>{banner}</BannerItem>)}
 			</AutoPlaySwipeableViews>
