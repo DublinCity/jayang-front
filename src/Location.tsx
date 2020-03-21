@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import locationImg from '../src/img/location.jpg';
+import locationImg from '../src/img/location.jpeg';
 
 const LocationWrapper = styled.div`
-  height: 100%;
-	padding: 4rem;
+	padding: 2rem;
+	padding-bottom: 40%;
+	margin-bottom: -5rem;
 `;
 
 const LocationTitle = styled.div`
@@ -15,7 +16,7 @@ const LocationTitle = styled.div`
 `;
 const LoactionMap = styled.div<{backgroundImg: string}>`
   margin: auto;
-  height: 100%;
+  padding-bottom: 100%;
 	background-image: url(${props => props.backgroundImg});
 	background-position: top;
 	background-repeat: no-repeat;

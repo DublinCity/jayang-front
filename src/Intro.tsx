@@ -1,25 +1,27 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import mainBgImg from './img/main-bg.jpg';
+import mainBgImg from './img/test.png';
 
 type IntroProps = {
-  children: ReactNode;
 }
 
 const IntroWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: url(${mainBgImg}) 0% 50%/cover fixed;
+	margin: auto;
+	border-right: 1rem solid #1b4577;
+	border-left: 1rem solid #1b4577;
+	border-bottom: 1rem solid #1b4577;
+	background-image: url(${mainBgImg});
+	background-position: center;
+	background-size: contain;
+	background-attachment: fixed;
 	height: 100%;
+	background-repeat: no-repeat;
 `;
 
-const Intro = ({ children }: IntroProps) => {
+const Intro = () => {
 
 	return (
-		<IntroWrapper className="intro-wrapper">
-			{children} 
-		</IntroWrapper>
+		<IntroWrapper className="intro-wrapper" />
 	);
 };
 

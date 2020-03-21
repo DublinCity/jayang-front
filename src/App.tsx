@@ -3,7 +3,6 @@ import Navigation from './Header';
 // import Main from './Main';
 import GlobalStyle from './GlobalStyle';
 import Intro from './Intro';
-import IntroContent from './IntroContent';
 import CoreValue from './CoreValue';
 import Banner from './Banner';
 import Location from './Location';
@@ -15,9 +14,7 @@ function App() {
 		<>
 			<GlobalStyle />
 			<Navigation />
-			<Intro>
-				<IntroContent />
-			</Intro>
+			<Intro />
 			<Community />
 			<CoreValue />
 			<Banner />
