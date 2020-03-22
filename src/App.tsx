@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Header';
+import Navigation from './Navigation';
 // import Main from './Main';
 import GlobalStyle from './GlobalStyle';
 import Intro from './Intro';

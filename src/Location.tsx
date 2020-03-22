@@ -9,13 +9,13 @@ const LocationWrapper = styled.div`
 `;
 
 const LocationTitle = styled.div`
-	font-size: 1rem;
+	font-size: 2rem;
 	font-weight: 300;
 	text-align: center;
 	color: #495057;
 `;
 const LoactionMap = styled.div<{backgroundImg: string}>`
-  margin: auto;
+  margin: 10% 0;
   padding-bottom: 100%;
 	background-image: url(${props => props.backgroundImg});
 	background-position: top;
@@ -47,7 +47,7 @@ const Location = () => {
 
 	return (
 		<LocationWrapper id="location">
-			<LocationTitle>오라이 오라이 여기로 오라이</LocationTitle>
+			<LocationTitle>🚌 오라이</LocationTitle>
 			<LoactionMap backgroundImg={locationImg} />
 		</LocationWrapper>
 	);

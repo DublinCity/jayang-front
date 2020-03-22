@@ -5,12 +5,12 @@ import { repeat } from './utils';
 import { StyledDiv } from './customComponent';
 
 const Content = styled.div`
-	margin-top: 2rem;
+	background-color: white;
   display:flex;
 	justify-content: space-between;
-  margin: auto;
  	flex-flow: wrap;
-  width: 85%;
+	padding: 0 5%;
+	margin: auto;
 	max-width: 1114px;
   font-size: 3rem;
 `;
