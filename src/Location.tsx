@@ -6,6 +6,7 @@ const LocationWrapper = styled.div`
 	padding: 2rem;
 	padding-bottom: 40%;
 	margin-bottom: -5rem;
+	background-color: white;
 `;
 
 const LocationTitle = styled.div`

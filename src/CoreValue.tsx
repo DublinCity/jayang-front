@@ -4,6 +4,11 @@ import servantImg from '../src/img/servant.jpg';
 import { repeat } from './utils';
 import { StyledDiv } from './customComponent';
 
+const ContentBackground = styled.div`
+	display: flex;
+	justify-content: center;
+	background-color: white;
+`;
 const Content = styled.div`
 	background-color: white;
   display:flex;
@@ -43,12 +48,13 @@ const CoreDesc = styled(StyledDiv)`
 `;
 
 const CoreValueWrapper = () => (
-	<Content>
-		{repeat(6).map((_: any,index: number) => (
-			<CoreValue key={index}>
-				<CoreThumbnail backgroundImage={servantImg}/> 
-				<CoreTitle textAlign="center" fontWeight="bold" fontSize="1.5rem">{index}. 핵심코어</CoreTitle>
-				<CoreDesc textAlign="center" fontWeight="lighter" fontSize="1.2rem">  
+	<ContentBackground>
+		<Content>
+			{repeat(6).map((_: any,index: number) => (
+				<CoreValue key={index}>
+					<CoreThumbnail backgroundImage={servantImg}/> 
+					<CoreTitle textAlign="center" fontWeight="bold" fontSize="1.5rem">{index}. 핵심코어</CoreTitle>
+					<CoreDesc textAlign="center" fontWeight="lighter" fontSize="1.2rem">  
 						이루어는 "하늘의 뜻이 땅에서 이루어" 
 						의 의미를 가지면서비와이 가라사대 깝치지 말지어다
 						넌 나를 위로 볼 지어다
@@ -58,9 +64,10 @@ const CoreValueWrapper = () => (
 						여길 다 삼킬 지어다
 						구와 신의 기준이 나일 지어다
 						그게 나일 지어다 
-				</CoreDesc>
-			</CoreValue>
-		))}
-	</Content>
+					</CoreDesc>
+				</CoreValue>
+			))}
+		</Content>
+	</ContentBackground>
 );
 export default CoreValueWrapper;

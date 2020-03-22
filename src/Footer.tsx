@@ -6,6 +6,7 @@ const FooterWrapper = styled.div`
 	padding-bottom: 2rem;	
 	height: 40%;
 	border-top: 1px solid #868e96;
+	background-color: white;
 `;
 
 const FooterContent = styled.div`
