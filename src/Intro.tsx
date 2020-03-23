@@ -30,12 +30,14 @@ const IntroWrapper = styled.div`
 `;
 
 const RotateRect = styled.div`
-	height: 100%;
-	width: 60%;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 10%;
+	right:10%;
 	border: 4px solid black;
 	position: fixed;
-	left: 20%;
-	transform: rotate(-8deg);
+	transform: rotate(-7deg);
 
 	@media(max-width:${maxWidth}){
 		border: 3px solid black;

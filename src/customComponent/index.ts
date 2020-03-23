@@ -3,7 +3,7 @@ import styled from 'styled-components';
 type DivProps = {
   textAlign?: string;
   fontSize?: string;
-  fontWeight: string;
+  fontWeight?: string;
 }
 export const StyledDiv = styled.div.attrs((props: DivProps) => ({
 	textAlign: props.textAlign || 'left',
