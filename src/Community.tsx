@@ -28,33 +28,40 @@ const ContentWrap = styled.div`
   justify-content: space-around;
 `;
 
-const ContentSection = styled.div`
+const ContentSection = styled.div<{textAlign?: string}>`
+  flex: 1;
+  line-height: 1.6;
+  padding: 0.5rem 1rem;
+  word-break: keep-all;
   border-bottom: 1px solid black;
-  flex-basis: 33%;
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
-  overflow: hidden;
+  align-items: center;
+  text-align: ${props => props.textAlign};
 `;
 
 const ContentSectionColumn = styled(ContentSection)`
   flex-direction: column;
 `;
-const ContentSectionTitle = styled(StyledDiv)`
-  flex: 1;
-  display: flex;
-  justify-content: center;
+const ContentSectionTitle = styled(StyledDiv).attrs((props: {alignSelf: string}) => ({
+	alignSelf: props.alignSelf
+}))`
+  align-self: ${props => props.alignSelf};
   white-space: nowrap;
+  padding: 0.5rem;
 `;
 
 const ContentSectionDesc = styled(StyledDiv)`
-  flex: 1;
+  padding: 0.5rem;
 `;
 
-const ContentSectionImg = styled.img.attrs({
-	src: communityImg
-})`
-  max-height: 100%;
+const ContentSectionImg = styled.div`
+  background-image: url(${communityImg});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
 `;
 
 const Community = () => (
@@ -62,7 +69,14 @@ const Community = () => (
 		<Title>자양교회 청년부를 소개합니다!</Title>
 		<ContentWrap>
 			<ContentSection>
-				<ContentSectionTitle fontSize="1.5rem">묵은 땅을 기경하라</ContentSectionTitle>
+				<ContentSectionTitle fontSize="1.2rem">
+					<StyledDiv fontSize="0.8rem" textAlign="right"> 
+            2020 자양교회 청년부
+					</StyledDiv>
+					<StyledDiv fontSize="inherit">
+          묵은 땅을 기경하라
+					</StyledDiv>
+				</ContentSectionTitle>
 				<ContentSectionDesc fontSize="0.8rem">
           내가 그들에게 한 마음을 주고 그 속에 새 영을 주며 그 몸에서
           돌같은 마음을 제거하고 살처럼 부드러운 마음을 주어
@@ -73,10 +87,15 @@ const Community = () => (
 				</ContentSectionDesc>
 			</ContentSection>
 			<ContentSectionColumn>
-				<ContentSectionTitle>자양교회 청년부는요</ContentSectionTitle>
+				<ContentSectionTitle alignSelf='flex-start' fontSize="1.2rem">
+          자양교회 청년부는요
+				</ContentSectionTitle>
 				<ContentSectionImg />
+				<ContentSectionTitle alignSelf="flex-end" fontSize="1.2rem">
+          로 구성되어 있어요!
+				</ContentSectionTitle>
 			</ContentSectionColumn>
-			<ContentSection>함께 하나님을 찬양하고 예배하길 원하는 청년들 모두에게 열려 있습니다. <br /> (처음 오시는 분들은 본당 입구에서 노란색 명찰을 한 새가족 리더들을 찾아주세요~)
+			<ContentSection textAlign="center">함께 하나님을 찬양하고 예배하길 원하는 청년들 모두에게 열려 있습니다. <br /> (처음 오시는 분들은 본당 입구에서 노란색 명찰을 한 새가족 리더들을 찾아주세요~)
 			</ContentSection>
 		</ContentWrap>
 	</CommunityWrap>

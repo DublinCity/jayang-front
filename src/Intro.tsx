@@ -1,8 +1,9 @@
-import React , { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import mainPCBgImg from './img/main-pc.jpeg';
 import mainMobileBgImg from './img/main-mobile.jpeg';
 import { maxWidth } from './constant';
+import Arrow from './lib/Arrow';
 
 type IntroProps = {
 }
@@ -20,10 +21,11 @@ const IntroWrapper = styled.div`
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	border-bottom: 4px solid #868e96;
-	box-shadow: 0px 2px 8px -1px rgba(33,37,41,0.5);
 	height: 100%;
 
-	@media(max-width:${maxWidth}){
+	
+
+	@media(max-width:${maxWidth}) {
 		background-image: url(${mainMobileBgImg});
 		background-size: cover;
 	}
@@ -53,6 +55,7 @@ const Intro = () => {
 		<>
 			<IntroWrapper className="intro-wrapper">
 				<RotateRect />
+				<Arrow />
 			</IntroWrapper>
 		</>
 	);

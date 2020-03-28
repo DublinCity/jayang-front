@@ -57,7 +57,7 @@ const Navigation = styled.nav<{open: boolean}>`
 		transition: visibility 0s, opacity 0.3s linear, max-height 0.25s ease-out;
 		display: flex;
 		flex-direction: column;
-		max-height: ${props =>props.open ? '150px' : 0};
+		max-height: ${props =>props.open ? '300px' : 0};
 		visibility: ${props=>props.open? 'visible': 'hidden'};
 		opacity: ${props=>props.open? '1': '0'}
 		}
@@ -84,8 +84,8 @@ const Header = () => {
 			{showNavi && (
 				<Navigation open={open}>
 					<NavigationSpan href="#banner" >🎤 소개</NavigationSpan>
-					<NavigationSpan href="#location">📚 교육</NavigationSpan>
 					<NavigationSpan href="#location">🚌 오라이</NavigationSpan>
+					<NavigationSpan href="#location">📷 잉스타</NavigationSpan>
 				</Navigation>
 			)}
 		</HeaderWrap>
