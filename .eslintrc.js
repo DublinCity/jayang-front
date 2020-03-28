@@ -53,6 +53,7 @@ module.exports = {
 			"prop": "parens-new-line"
 		}],
 		"object-curly-spacing": ["error", "always"],
+		"quote-props": ["error", "as-needed"],
 		"no-unused-vars": "off",
 		"react/self-closing-comp": ["error", {
 			"component": true,
