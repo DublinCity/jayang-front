@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import mainPCBgImg from './img/main-pc.jpeg';
-import mainMobileBgImg from './img/main-mobile.jpeg';
-import { maxWidth } from './constant';
-import Arrow from './lib/Arrow';
+import mainPCBgImg from '../img/main-pc.jpeg';
+import mainMobileBgImg from '../img/main-mobile.jpeg';
+import { maxWidth } from '../constant';
+import Arrow from '../lib/Arrow';
 
 type IntroProps = {
 }
@@ -18,11 +18,9 @@ const IntroWrapper = styled.div`
 	background-image: url(${mainPCBgImg});
 	background-position: center;
 	background-size: contain;
-	background-attachment: fixed;
 	background-repeat: no-repeat;
-	border-bottom: 4px solid #868e96;
 	height: 100%;
-
+	overflow: hidden;
 	
 
 	@media(max-width:${maxWidth}) {
@@ -38,7 +36,6 @@ const RotateRect = styled.div`
 	left: 10%;
 	right:10%;
 	border: 4px solid black;
-	position: fixed;
 	transform: rotate(-7deg);
 
 	@media(max-width:${maxWidth}){

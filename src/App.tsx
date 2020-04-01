@@ -1,26 +1,38 @@
 import React from 'react';
-import Navigation from './Navigation';
-// import Main from './Main';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
-import Intro from './Intro';
-import CoreValue from './CoreValue';
-import Banner from './Banner';
-import Location from './Location';
-import Community from './Community';
 import Footer from './Footer';
+import Main from './Main/index';
+import Community from './Community/index';
+import Gathering from './Gathering/index';
+import Education from './Education/index';
+import ScrollToTop from './Utils/ScrollTop';
 
 function App() {
 	return (
-		<>
+		<Router>
 			<GlobalStyle />
-			<Navigation />
-			<Intro />
-			<Community />
-			<CoreValue />
-			<Banner />
-			<Location />
+			<ScrollToTop />
+			<Switch>
+				<Route exact path="/">
+					<Main />
+				</Route>
+				<Route path="/community">
+					<Community />
+				</Route>
+				<Route path="/gathering">
+					<Gathering />
+				</Route>
+				<Route path="/education">
+					<Education />
+				</Route>
+			</Switch>
 			<Footer />
-		</>
+		</Router>
 	);
 }
 
