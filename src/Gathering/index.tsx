@@ -66,6 +66,10 @@ const Cell = styled(StyledDiv)`
   border-bottom: 2px solid #2d3b54;
   display: flex;
   flex-direction: column;
+	margin: auto;
+	@media(min-width: 800px) {
+		width: 800px;
+	}
 `;
 const CellTitleWrap = styled(StyledDiv)`
 	display: flex;
@@ -83,6 +87,7 @@ flex: 5;
 word-break: keep-all;
 margin-bottom: 1rem;
 font-family: 'Noto Sans KR', sans-serif;
+
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -106,21 +111,24 @@ word-break: keep-all;
 
 const TimeInfo = styled(StyledDiv)`
   align-self: flex-end;
+
 `;
 
 const PlaceInfo = styled(StyledDiv)`
 font-family: 'Noto Sans KR', sans-serif;
 align-self: flex-end;
+
 `; 
 
 const ContentWrap = styled(StyledDiv)`
 	padding: 1rem 0;
   background-color: ${BLUE};
   font-family: 'Do Hyeon', sans-serif;
+	margin-top: -2px;
 `;
 
 const ContentSectionTitle = styled(StyledDiv)`
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 0.7rem;
   white-space: nowrap;
   border: 2px solid white;
@@ -128,6 +136,8 @@ const ContentSectionTitle = styled(StyledDiv)`
   color: white;
   align-self: center;
   box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
+
+	max-width: 800px;
 `;
 
 const StyledLink = styled(Link)`

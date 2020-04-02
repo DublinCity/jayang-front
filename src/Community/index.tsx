@@ -48,6 +48,8 @@ const BackBtn = styled.svg.attrs({
 `;
 
 const Cell = styled(StyledDiv)`
+	display: flex;
+	flex-direction: column;
 	margin: 0;
 	padding: 2rem 1rem 3rem 1rem;
 	border-bottom: 2px solid #2d3b54;

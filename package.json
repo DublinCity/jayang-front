@@ -26,6 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "npx serve -s build -l 4000",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

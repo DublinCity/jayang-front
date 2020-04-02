@@ -55,9 +55,11 @@ const CommunityWrapper = styled(StyledDiv)`
 	font-family: 'Do Hyeon', sans-serif;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 const Header = styled(StyledDiv)`
+	align-self: stretch;
 	line-height: 2rem;
 	background-color: ${PINK};
 	color: white;
@@ -78,10 +80,13 @@ const BackBtn = styled.svg.attrs({
 const Cell = styled(StyledDiv)`
 	margin: 0;
 	padding: 2rem 1rem 3rem 1rem;
-  
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid #2d3b54;
+
+	@media(min-width: 800px) {
+		width: 800px;
+	}
 `;
 
 const CellTitleText = styled(StyledDiv)`
@@ -125,12 +130,14 @@ word-break: keep-all;
 `;
 
 const ContentWrap = styled(StyledDiv)`
+	align-self: stretch;
   background-color: ${PINK};
   font-family: 'Do Hyeon', sans-serif;
+	margin-top: -2px;
 `;
 
 const ContentSectionTitle = styled(StyledDiv)`
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 0.7rem;
   white-space: nowrap;
   border: 2px solid white;
@@ -138,6 +145,7 @@ const ContentSectionTitle = styled(StyledDiv)`
   color: white;
   align-self: center;
   box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
+	max-width: 800px;
 `;
 
 const StyledLink = styled(Link)`
@@ -154,9 +162,11 @@ const CellTargetWrap = styled(StyledDiv)`
 `;
 
 const EduTitle = styled(StyledDiv)`
+	align-self: stretch;
   background-color: #212529;
 	color: white;
 	padding: 0.5rem 0;
+	margin-top: -2px;
 `;
 
 function Community() {
@@ -260,7 +270,7 @@ function Community() {
 				))}
 				<ContentWrap fontSize='1.2rem' textAlign='center'>
 					<ContentSectionTitle fontSize="1.5rem" textAlign="center" fontWeight="bold">
-						<StyledLink to="community" >
+						<StyledLink to="" >
               교육 신청하기!
 						</StyledLink>
 					</ContentSectionTitle>
