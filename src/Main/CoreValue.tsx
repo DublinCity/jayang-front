@@ -21,7 +21,7 @@ const Content = styled.div`
 	justify-content: space-between;
  	flex-flow: wrap;
 	padding: 0 5%;
-	margin: 2rem auto;
+	margin: 2rem 0 0 0;
 	max-width: 1114px;
   font-size: 3rem;
 `;
