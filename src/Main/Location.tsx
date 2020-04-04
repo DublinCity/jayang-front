@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import locationImg from '../img/location.jpeg';
+import locationImg from '../img/location.png';
 import { StyledDiv } from '../customComponent';
 import BusSVG from '../SVG/Bus';
 import SubwaySVG from '../SVG/Subway';
@@ -19,8 +19,8 @@ const LocationTitle = styled(StyledDiv)`
 	word-break: keep-all;
 `;
 const LoactionMap = styled.div<{backgroundImg: string}>`
-  margin: 10% 0;
-  padding-bottom: 100%;
+  margin: 0;
+  padding-bottom: 70%;
 	background-image: url(${props => props.backgroundImg});
 	background-position: top;
 	background-repeat: no-repeat;

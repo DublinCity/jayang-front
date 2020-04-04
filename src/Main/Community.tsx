@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { StyledDiv } from '../customComponent';
 import { YELLOW } from '../GlobalStyle';
+import titleBackground from '../img/title-background.jpg';
 
 const CommunityWrap = styled.div`
   height: 100%;
@@ -12,6 +13,7 @@ const CommunityWrap = styled.div`
 `;
 
 const Title = styled.div`
+  position: relative;
   flex: 3 1 0;
   padding: 1rem 0;
   display: flex;
@@ -23,6 +25,17 @@ const Title = styled.div`
   display:flex;
   flex-direction:column;
   border-top: 4px solid #495057;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url(${titleBackground});
+    background-position: top;
+    background-size: cover;
+    opacity: 0.4;
+  }
 `;
 
 const ContentWrap = styled(StyledDiv)`
@@ -32,7 +45,6 @@ const ContentWrap = styled(StyledDiv)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Do Hyeon', sans-serif;
 `;
 
 const ContentSectionTitle = styled(StyledDiv)`
@@ -47,6 +59,7 @@ const ContentSectionTitle = styled(StyledDiv)`
 `;
 
 const TitleImageDiv = styled(StyledDiv)`
+  text-shadow: 2px 1px 0px rgba(200, 200, 200, 1);
   font-family: 'Nanum Brush Script';
   margin: 2rem 0;
 `;
@@ -71,7 +84,7 @@ const Community = () => (
 		</Title>
 		<ContentWrap fontSize="2rem" textAlign='center'>
       자양교회 청년부 처음이세요?
-			<ContentSectionTitle fontSize="2rem" textAlign="center" fontWeight="bold">
+			<ContentSectionTitle fontSize="2rem" textAlign="center">
 				<StyledLink to="community" >
         청년부가 궁금하다면?
 				</StyledLink>

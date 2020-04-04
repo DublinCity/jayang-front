@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledDiv } from '../customComponent';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { BLUE } from '../GlobalStyle';
 
 const textArr = [
@@ -138,6 +138,10 @@ const ContentSectionTitle = styled(StyledDiv)`
   box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
 
 	max-width: 800px;
+
+	@media(max-width:768px) {
+		margin: 1.5rem;
+	}
 `;
 
 const StyledLink = styled(Link)`
@@ -149,21 +153,20 @@ const StyledLink = styled(Link)`
 `;
 
 function Community() {
+	const history = useHistory();
 	return (
 		<>
 			<CommunityWrapper>
 				<Header>
-					<Link to='/'>
-						<BackWrapper>
-							<BackBtn>
-								<g>
-									<g id="chevron-left">
-										<polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153" fill="white"/>
-									</g>
+					<BackWrapper onClick={() => history.goBack()}>
+						<BackBtn>
+							<g>
+								<g id="chevron-left">
+									<polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153" fill="white"/>
 								</g>
-							</BackBtn>
-						</BackWrapper>
-					</Link>
+							</g>
+						</BackBtn>
+					</BackWrapper>
 					<HeaderTitle fontSize="2rem">
           모임 안내
 					</HeaderTitle>

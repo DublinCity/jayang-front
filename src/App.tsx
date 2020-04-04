@@ -10,13 +10,13 @@ import Main from './Main/index';
 import Community from './Community/index';
 import Gathering from './Gathering/index';
 import Education from './Education/index';
-import ScrollToTop from './Utils/ScrollTop';
+import ScrollRestoration from './Utils/ScrollTop';
 
 function App() {
 	return (
 		<Router>
+			<ScrollRestoration />
 			<GlobalStyle />
-			<ScrollToTop />
 			<Switch>
 				<Route exact path="/">
 					<Main />

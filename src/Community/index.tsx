@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledDiv } from '../customComponent';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const textArr = [
 	{ title: '# J공동체',
@@ -90,21 +90,20 @@ word-break: keep-all;
 `;
 
 function Community() {
+	const history = useHistory();
 	return (
 		<>
 			<CommunityWrapper>
 				<Header>
-					<Link to='/'>
-						<BackWrapper>
-							<BackBtn>
-								<g>
-									<g id="chevron-left">
-										<polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153" fill="white"/>
-									</g>
+					<BackWrapper onClick={() => history.goBack()}>
+						<BackBtn>
+							<g>
+								<g id="chevron-left">
+									<polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153" fill="white"/>
 								</g>
-							</BackBtn>
-						</BackWrapper>
-					</Link>
+							</g>
+						</BackBtn>
+					</BackWrapper>
 					<HeaderTitle fontSize="1.7rem">
 					자양교회 청년부를 소개합니다.
 					</HeaderTitle>

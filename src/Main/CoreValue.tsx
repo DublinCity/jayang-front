@@ -8,22 +8,23 @@ import { StyledDiv } from '../customComponent';
 import { Link } from 'react-router-dom';
 import { BLUE, PINK } from '../GlobalStyle';
 
-const ContentBackground = styled.div`
-	display: flex;
-	justify-content: center;
-	background-color: white;
-`;
 const Content = styled.div`
 	line-height: 1.6;
 	word-break: keep-all;
 	background-color: white;
   display:flex;
+	flex-direction: column;	
 	justify-content: space-between;
  	flex-flow: wrap;
 	padding: 0 5%;
 	margin: 2rem 0 0 0;
 	max-width: 1114px;
   font-size: 3rem;
+	margin: 3rem auto;
+
+	@media(min-width: 768px) {
+		height: 100%;
+	}
 `;
 
 const CoreValue = styled.div`
@@ -48,6 +49,10 @@ const CoreThumbnail = styled.div<{backgroundImage: string}>`
 	background-position: center;
 	background-size: contain;
 	padding-bottom: 70%;
+
+	@media(min-width: 768px) {
+		padding-bottom: 0;
+	}
 `;
 
 const CoreTitle = styled(StyledDiv)`
@@ -115,22 +120,20 @@ const StyledLink = styled(Link)`
 `;
 
 const CoreValueWrapper = () => (
-	<ContentBackground>
-		<Content>
-			<ContentTitle fontSize="2rem" textAlign="center" fontWeight="bold">
+	<Content>
+		<ContentTitle fontSize="2rem" textAlign="center" fontWeight="bold">
 			자양교회 청년부에서 무엇을 하나요?
-			</ContentTitle>
-			{whatWeDo.map(({ src, title, desc, link },index: number) => (
-				<CoreValue key={index}>
-					<CoreThumbnail backgroundImage={src}/> 
-					<CoreTitle textAlign="center" fontSize="1.5rem">{title}</CoreTitle>
-					<CoreDesc textAlign="center" fontWeight="lighter" fontSize="1.2rem">  
-						{desc}
-					</CoreDesc>
-					{link && <LinkButton textAlign="center" fontSize="1.5rem" color={link.color}><StyledLink to={link.url}>{link.text} </StyledLink> </LinkButton>}
-				</CoreValue>
-			))}
-		</Content>
-	</ContentBackground>
+		</ContentTitle>
+		{whatWeDo.map(({ src, title, desc, link },index: number) => (
+			<CoreValue key={index}>
+				<CoreThumbnail backgroundImage={src}/> 
+				<CoreTitle textAlign="center" fontSize="1.5rem">{title}</CoreTitle>
+				<CoreDesc textAlign="center" fontWeight="lighter" fontSize="1.2rem">  
+					{desc}
+				</CoreDesc>
+				{link && <StyledLink to={link.url}><LinkButton textAlign="center" fontSize="1.5rem" color={link.color}>{link.text}</LinkButton></StyledLink>}
+			</CoreValue>
+		))}
+	</Content>
 );
 export default CoreValueWrapper;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { StyledDiv } from '../customComponent';
 import { Link } from 'react-router-dom';
 import { PINK } from '../GlobalStyle';
@@ -146,6 +147,10 @@ const ContentSectionTitle = styled(StyledDiv)`
   align-self: center;
   box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
 	max-width: 800px;
+
+	@media(max-width:768px) {
+		margin: 1.5rem;
+	}
 `;
 
 const StyledLink = styled(Link)`
@@ -175,6 +180,7 @@ function Community() {
 			<CommunityWrapper>
 				<Header>
 					<Link to='/'>
+						{/* TODO: 소모임 페이지에서 왔을때, 고려해서 goBack 해야함. */}
 						<BackWrapper>
 							<BackBtn>
 								<g>
@@ -269,11 +275,11 @@ function Community() {
 					</Cell>
 				))}
 				<ContentWrap fontSize='1.2rem' textAlign='center'>
-					<ContentSectionTitle fontSize="1.5rem" textAlign="center" fontWeight="bold">
-						<StyledLink to="" >
+					<StyledLink to="" >
+						<ContentSectionTitle fontSize="1.5rem" textAlign="center" >
               교육 신청하기!
-						</StyledLink>
-					</ContentSectionTitle>
+						</ContentSectionTitle>
+					</StyledLink>
 				</ContentWrap>
 			</ CommunityWrapper>
 		</>
