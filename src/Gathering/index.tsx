@@ -193,7 +193,7 @@ function Community() {
 						</CellDescWrap>
 					</Cell>
 				))}
-				<ContentWrap fontSize='1.2rem' textAlign='center' color="white">
+				<ContentWrap fontSize='1rem' textAlign='center' color="white">
 				아직 부족해요! <br />
 				청년부에 어떤 교육이
 				있는지도 알고 싶어요 
