@@ -5,8 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { BLUE } from '../GlobalStyle';
 
 const textArr = [
-	{ title: '[부별모임]',
-		desc: '서로 축복도 하고 함께 웃고 우는 자양 청년부 부별모임!',
+	{ title: '부별모임',
+		desc: '서로 축복하고, 함께 웃고 우는 자양 청년 공동체 부별 모임!',
 		time: `주일 오후 3시
     `,
 		placeInfo: [
@@ -16,33 +16,31 @@ const textArr = [
 			'동행공동체 – 본관 4층',
 		]
 	},
-	{ title: '[사랑방]',
-		desc: `RE공동체는 어쩌구 저쩌구 저쩌구.
-    26~32살 청년들이 함께 하고 있어요!`,
+	{ title: '사랑방',
+		desc: '사람과 사람이 만나 사랑이 됩니다! 삶도 나누고, 사랑도 나누고 함께라서 더 즐거운 신앙생활!',
 		time: '주일 오후 3시 30분',
-		placeInfo: ['소그룹 별 진행']
+		placeInfo: ['각 사랑방 별 진행']
 	},
-	{ title: '[마하나임 기도회]',
-		desc: `공감공동체는 어쩌구 저쩌구 저쩌구
-    33살 이상 청년들이 모입니다!`,
-		time: '매주 수요일 저녁 8시 30분',
+	{ title: '마하나임 기도회',
+		desc: '혼자서는 기도하기 어렵죠? 그래서 우리는 모여서 함께 기도해요! 개인, 교회, 나라와 민족을 위해 함께 기도하는 시간!',
+		time: '수요일 저녁 8시 30분',
 		placeInfo: ['교육관 2층']
 	},
-	{ title: '[동아리] ',
-		desc: `교회에 처음 온 분들은 4주간 동행 공동체에서 함께 합니다.
-    4주동안 사랑으로 서로 교제하고, 양육하며 교회에 적응해 갑니다.`,
+	{ title: '동아리',
+		desc: '모이기에 힘쓰는 자양교회 청년부! 축구, 독서, 봉사활동 등등 함께해서 더 행복해요!',
 		time: '동아리별 진행',
 		placeInfo: ['']
 	},
 ];
 
 const CommunityWrapper = styled(StyledDiv)`
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	display: flex;
 	flex-direction: column;
 `;
 
 const Header = styled(StyledDiv)`
+	font-family: 'Do Hyeon', sans-serif;
 	line-height: 2rem;
 	background-color: ${BLUE};
 	color: white;
@@ -54,40 +52,40 @@ const Header = styled(StyledDiv)`
 `;
 
 const BackBtn = styled.svg.attrs({
-	viewBox:'0 0 306 306',
+	viewBox:'0 0 350 350',
 })`
 	width: 100%;
-	margin-left: -1px;
 `;
 
 const Cell = styled(StyledDiv)`
 	margin: 0;
-	padding: 2rem 1rem 3rem 1rem;
+	padding: 2rem;
   border-bottom: 2px solid #2d3b54;
   display: flex;
-  flex-direction: column;
 	margin: auto;
 	@media(min-width: 800px) {
 		width: 800px;
 	}
 `;
 const CellTitleWrap = styled(StyledDiv)`
+	flex: 1;
 	display: flex;
-	align-items: center;
-	flex: 2;
 `;
 const CellTitleText = styled(StyledDiv)`
-	font-family: 'Do Hyeon', sans-serif;
 	word-break: keep-all;
 	color: #343a40;
-	display: flex;
+`;
+
+const CellDescWrap = styled(StyledDiv)`
+	flex: 3;
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0 2rem;
 `;
 const CellDesc = styled(StyledDiv)`
 flex: 5;
 word-break: keep-all;
-margin-bottom: 1rem;
-font-family: 'Noto Sans KR', sans-serif;
-
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -96,7 +94,7 @@ const BackWrapper = styled(StyledDiv)`
 	align-items: center;
 	padding: 0.3rem;
 	margin: 0.5rem 0.5rem 0.5rem 1rem; 
-	flex-basis: 10%;
+	flex-basis: 20px;
 	max-width: 2rem;
 	border-radius: 100%;
 `;
@@ -110,20 +108,18 @@ word-break: keep-all;
 `;
 
 const TimeInfo = styled(StyledDiv)`
-  align-self: flex-end;
-
+	margin: 1.5rem 0;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #343a40;
+	align-self: flex-start;
 `;
 
 const PlaceInfo = styled(StyledDiv)`
-font-family: 'Noto Sans KR', sans-serif;
-align-self: flex-end;
-
 `; 
 
 const ContentWrap = styled(StyledDiv)`
 	padding: 1rem 0;
   background-color: ${BLUE};
-  font-family: 'Do Hyeon', sans-serif;
 	margin-top: -2px;
 `;
 
@@ -167,24 +163,28 @@ function Community() {
 							</g>
 						</BackBtn>
 					</BackWrapper>
-					<HeaderTitle fontSize="2rem">
+					<HeaderTitle fontSize="20px">
           모임 안내
 					</HeaderTitle>
 				</Header>
 				{textArr.map(({ title, desc, time, placeInfo }) => (
 					<Cell key={title}>
 						<CellTitleWrap>
-							<CellTitleText fontSize="2rem">
+							&ldquo;&nbsp;
+							<CellTitleText fontSize="17px" textAlign="center">
 								{title}
 							</CellTitleText>
+							&nbsp;&rdquo;
 						</CellTitleWrap>
-						<CellDesc fontSize="1.5rem;">
-							{desc}	
-						</CellDesc>
-						<TimeInfo fontSize="1.8rem">
-							{time}
-						</TimeInfo>
-						{placeInfo.map(info => <PlaceInfo fontSize="1.5rem;" key={info}>{info}</PlaceInfo>)}
+						<CellDescWrap>
+							<CellDesc fontSize="13px">
+								{desc}	
+							</CellDesc>
+							<TimeInfo fontSize="11px">
+								{time}
+							</TimeInfo>
+							{placeInfo.map(info => <PlaceInfo fontSize="11px" key={info}>{info}</PlaceInfo>)}
+						</CellDescWrap>
 					</Cell>
 				))}
 				<ContentWrap fontSize='1.2rem' textAlign='center'>
