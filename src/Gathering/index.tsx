@@ -79,7 +79,7 @@ const CellTitleText = styled(StyledDiv)`
 `;
 
 const CellDescWrap = styled(StyledDiv)`
-	line-height: 1.6;
+	line-height: 1.25;
 	letter-spacing: -0.06rem;
 	flex: 3;
 	display: flex; 
