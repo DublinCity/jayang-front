@@ -36,7 +36,7 @@ const textArr = [
 
 const CommunityWrapper = styled(StyledDiv)`
 	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 500;
+	font-weight: 400;
 	display: flex;
 	flex-direction: column;
 `;
@@ -75,7 +75,7 @@ const CellTitleWrap = styled(StyledDiv)`
 	display: flex;
 `;
 const CellTitleText = styled(StyledDiv)`
-	font-weight: 600;
+	font-weight: 500;
 	word-break: keep-all;
 	color: #343a40;
 `;
