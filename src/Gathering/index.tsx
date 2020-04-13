@@ -62,7 +62,7 @@ const BackBtn = styled.svg.attrs({
 const Cell = styled(StyledDiv)`
 	margin: 0;
 	padding: 2rem;
-  border-bottom: 2px solid #2d3b54;
+  border-bottom: 1px solid #ced4da;
   display: flex;
 	margin: auto;
 	@media(min-width: 800px) {
@@ -71,6 +71,7 @@ const Cell = styled(StyledDiv)`
 `;
 const CellTitleWrap = styled(StyledDiv)`
 	flex: 1;
+	flex-basis: 10%;
 	display: flex;
 `;
 const CellTitleText = styled(StyledDiv)`
