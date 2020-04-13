@@ -10,8 +10,8 @@ type DivProps = {
 export const StyledDiv = styled.div.attrs((props: DivProps) => ({
 	textAlign: props.textAlign || 'left',
 	fontSize: props.fontSize || '1rem',
-	fontWeight: props.fontWeight || 'normal',
-	lineHeight: props.lineHeight || 'normal',
+	fontWeight: props.fontWeight || 'inherit',
+	lineHeight: props.lineHeight || 'inherit',
 	color: props.color || 'black',
 }))`
   text-align: ${props => props.textAlign};

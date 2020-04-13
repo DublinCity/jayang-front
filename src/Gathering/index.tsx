@@ -35,6 +35,7 @@ const textArr = [
 
 const CommunityWrapper = styled(StyledDiv)`
 	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
 	display: flex;
 	flex-direction: column;
 `;
@@ -72,11 +73,14 @@ const CellTitleWrap = styled(StyledDiv)`
 	display: flex;
 `;
 const CellTitleText = styled(StyledDiv)`
+	font-weight: 600;
 	word-break: keep-all;
 	color: #343a40;
 `;
 
 const CellDescWrap = styled(StyledDiv)`
+	line-height: 1.6;
+	letter-spacing: -0.06rem;
 	flex: 3;
 	display: flex; 
 	flex-direction: column;
@@ -108,7 +112,7 @@ word-break: keep-all;
 `;
 
 const TimeInfo = styled(StyledDiv)`
-	margin: 1.5rem 0;
+	margin: 1rem 0;
 	padding-bottom: 2px;
 	border-bottom: 1px solid #343a40;
 	align-self: flex-start;
