@@ -6,6 +6,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
+		'plugin:prettier/recommended',
 		'plugin:@typescript-eslint/eslint-recommended'
 	],
 	'globals': {
@@ -25,24 +26,6 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	'rules': {
-		'indent': [
-			'error',
-			'tab'
-		],
-		'linebreak-style': [
-			'error',
-			'unix'
-		],
-		'quotes': [
-			'error',
-			'single'
-		],
-		'semi': [
-			'error',
-			'always'
-		],
-		'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 1 }],
-		"no-multi-spaces": "error",
 		"react/jsx-wrap-multilines": ["error", {
 			"declaration": "parens-new-line",
 			"assignment": "parens-new-line",
@@ -52,9 +35,6 @@ module.exports = {
 			"logical": "parens-new-line",
 			"prop": "parens-new-line"
 		}],
-		"object-curly-spacing": ["error", "always"],
-		"quote-props": ["error", "as-needed"],
-		"no-unused-vars": "off",
 		"react/self-closing-comp": ["error", {
 			"component": true,
 			"html": true
