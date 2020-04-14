@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 type DivProps = {
   textAlign?: string;
@@ -6,17 +6,17 @@ type DivProps = {
   fontWeight?: string;
   lineHeight?: string;
   color?: string;
-}
+};
 export const StyledDiv = styled.div.attrs((props: DivProps) => ({
-	textAlign: props.textAlign || 'left',
-	fontSize: props.fontSize || '1rem',
-	fontWeight: props.fontWeight || 'inherit',
-	lineHeight: props.lineHeight || 'inherit',
-	color: props.color || 'black',
+  textAlign: props.textAlign || "left",
+  fontSize: props.fontSize || "1rem",
+  fontWeight: props.fontWeight || "inherit",
+  lineHeight: props.lineHeight || "inherit",
+  color: props.color || "black",
 }))`
-  text-align: ${props => props.textAlign};
-  font-size: ${props => props.fontSize};
-  font-weight: ${props => props.fontWeight};
-  line-height: ${props => props.lineHeight};
-  color: ${props => props.color};
+  text-align: ${(props) => props.textAlign};
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  line-height: ${(props) => props.lineHeight};
+  color: ${(props) => props.color};
 `;

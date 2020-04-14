@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { StyledDiv } from '../customComponent';
-import { YELLOW } from '../GlobalStyle';
-import titleBackground from '../img/title-background.jpg';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { StyledDiv } from "../customComponent";
+import { YELLOW } from "../GlobalStyle";
+import titleBackground from "../img/title-background.jpg";
 
 const CommunityWrap = styled.div`
   height: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: white;
 `;
@@ -20,15 +20,15 @@ const Title = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.7rem;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: "Do Hyeon", sans-serif;
   color: white;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   border-top: 4px solid #495057;
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     background-image: url(${titleBackground});
@@ -60,7 +60,7 @@ const ContentSectionTitle = styled(StyledDiv)`
 
 const TitleImageDiv = styled(StyledDiv)`
   text-shadow: 2px 1px 0px rgba(200, 200, 200, 1);
-  font-family: 'Nanum Brush Script';
+  font-family: "Nanum Brush Script";
   margin: 2rem 0;
 `;
 
@@ -73,24 +73,20 @@ const StyledLink = styled(Link)`
 `;
 
 const Community = () => (
-	<CommunityWrap>
-		<Title>
-			<StyledDiv fontSize="2rem" >
-      2020 자양교회 청년부
-			</StyledDiv>
-			<TitleImageDiv fontSize="4rem" textAlign='center'>
-      묵은 땅을 기경하라
-			</TitleImageDiv>
-		</Title>
-		<ContentWrap fontSize="2rem" textAlign='center'>
+  <CommunityWrap>
+    <Title>
+      <StyledDiv fontSize="2rem">2020 자양교회 청년부</StyledDiv>
+      <TitleImageDiv fontSize="4rem" textAlign="center">
+        묵은 땅을 기경하라
+      </TitleImageDiv>
+    </Title>
+    <ContentWrap fontSize="2rem" textAlign="center">
       자양교회 청년부 처음이세요?
-			<ContentSectionTitle fontSize="2rem" textAlign="center">
-				<StyledLink to="community" >
-        청년부가 궁금하다면?
-				</StyledLink>
-			</ContentSectionTitle>
-		</ContentWrap>
-	</CommunityWrap>
+      <ContentSectionTitle fontSize="2rem" textAlign="center">
+        <StyledLink to="community">청년부가 궁금하다면?</StyledLink>
+      </ContentSectionTitle>
+    </ContentWrap>
+  </CommunityWrap>
 );
 
 export default Community;
