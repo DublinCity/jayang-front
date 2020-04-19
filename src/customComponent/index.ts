@@ -8,11 +8,11 @@ type DivProps = {
   color?: string;
 };
 export const StyledDiv = styled.div.attrs((props: DivProps) => ({
-  textAlign: props.textAlign || "left",
-  fontSize: props.fontSize || "1rem",
+  textAlign: props.textAlign || "inherit",
+  fontSize: props.fontSize || "inherit",
   fontWeight: props.fontWeight || "inherit",
   lineHeight: props.lineHeight || "inherit",
-  color: props.color || "black",
+  color: props.color || "inherit",
 }))`
   text-align: ${(props) => props.textAlign};
   font-size: ${(props) => props.fontSize};
