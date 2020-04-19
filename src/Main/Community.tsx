@@ -33,14 +33,16 @@ const detailLinkInfo = [
 ];
 
 const CommunityWrap = styled.div`
-  height: 100vh;
   display: flex;
+  overflow: hidden;
+  align-items: center;
   flex-direction: column;
   background-color: white;
+  border-top: 4px solid #495057;
 `;
 
 const Title = styled.div`
-  flex: 1;
+  width: 895px;
   padding: 1rem 0;
   display: flex;
   align-items: center;
@@ -48,10 +50,8 @@ const Title = styled.div`
   font-size: 1.7rem;
   font-family: "Do Hyeon", sans-serif;
   flex-direction: column;
-  border-top: 4px solid #495057;
 
   @media (min-width: 768px) {
-    padding: 1rem 8rem;
   }
 `;
 
@@ -80,6 +80,8 @@ const ContentWrap = styled(StyledDiv)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 1.4rem;
+  max-width: 1120px;
+  width: 100%;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -110,14 +112,14 @@ const ArrowSVG = styled(StyledDiv)`
 
 const ImgTag = styled(StyledDiv)`
   align-self: stretch;
-  height: 100%;
+  width: 100%;
+  height: 215px;
   background-image: url(${titleBackground});
   background-repeat: no-repeat;
   /* background-size: 80%; */
   background-position: center 60%;
   background-size: contain;
   @media (min-width: 768px) {
-    flex: 3;
     background-position: 80% 85%;
     background-size: contain;
   }
