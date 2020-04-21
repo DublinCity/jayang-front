@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { Link, useHistory } from "react-router-dom";
-import { BLUE } from "../GlobalStyle";
 
 const textArr = [
   {
@@ -41,16 +40,16 @@ const textArr = [
 ];
 
 const CommunityWrapper = styled(StyledDiv)`
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: ${(props) => props.theme.FONT.NOTO};
   font-weight: 400;
   display: flex;
   flex-direction: column;
 `;
 
 const Header = styled(StyledDiv)`
-  font-family: "Do Hyeon", sans-serif;
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   line-height: 2rem;
-  background-color: ${BLUE};
+  background-color: ${(props) => props.theme.COLOR.BLUE};
   color: white;
   padding: 0.5rem 0;
   display: flex;
@@ -130,7 +129,7 @@ const PlaceInfo = styled(StyledDiv)``;
 
 const ContentWrap = styled(StyledDiv)`
   padding: 1rem 0;
-  background-color: ${BLUE};
+  background-color: ${(props) => props.theme.COLOR.BLUE};
   margin-top: -2px;
 `;
 

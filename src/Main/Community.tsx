@@ -38,7 +38,7 @@ const CommunityWrap = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: white;
-  border-top: 4px solid #495057;
+  border-top: ${(props) => `4px solid ${props.theme.COLOR.GRAY_7}`};
 `;
 
 const Title = styled.div`
@@ -48,7 +48,7 @@ const Title = styled.div`
   align-items: center;
   justify-content: flex-start;
   font-size: 1.7rem;
-  font-family: "Do Hyeon", sans-serif;
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   flex-direction: column;
 
   @media (min-width: 768px) {
@@ -92,7 +92,7 @@ const ContentWrap = styled(StyledDiv)`
 
 const TitleImageDiv = styled(StyledDiv)`
   text-shadow: 2px 1px 0px rgba(200, 200, 200, 1);
-  font-family: "Nanum Brush Script";
+  font-family: ${(props) => props.theme.FONT.NANUM_BRUSH};
   margin: 1rem 0;
 
   font-size: 4rem;
@@ -116,7 +116,6 @@ const ImgTag = styled(StyledDiv)`
   height: 215px;
   background-image: url(${titleBackground});
   background-repeat: no-repeat;
-  /* background-size: 80%; */
   background-position: center 60%;
   background-size: contain;
   @media (min-width: 768px) {

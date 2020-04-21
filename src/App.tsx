@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import GlobalStyle from "./GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle, { COLOR, FONT } from "./GlobalStyle";
 import Footer from "./Footer";
 import Main from "./Main/index";
 import Community from "./Community/index";
@@ -13,20 +14,22 @@ function App() {
     <Router>
       <ScrollRestoration />
       <GlobalStyle />
-      <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-        <Route path="/community">
-          <Community />
-        </Route>
-        <Route path="/gathering">
-          <Gathering />
-        </Route>
-        <Route path="/education">
-          <Education />
-        </Route>
-      </Switch>
+      <ThemeProvider theme={{ COLOR, FONT }}>
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/community">
+            <Community />
+          </Route>
+          <Route path="/gathering">
+            <Gathering />
+          </Route>
+          <Route path="/education">
+            <Education />
+          </Route>
+        </Switch>
+      </ThemeProvider>
       <Footer />
     </Router>
   );

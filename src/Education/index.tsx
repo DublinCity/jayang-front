@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { StyledDiv } from "../customComponent";
 import { Link } from "react-router-dom";
-import { PINK } from "../GlobalStyle";
 
 const basicEdu = [
   {
@@ -61,7 +60,7 @@ const advanceEdu = [
 ];
 
 const CommunityWrapper = styled(StyledDiv)`
-  font-family: "Do Hyeon", sans-serif;
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +69,7 @@ const CommunityWrapper = styled(StyledDiv)`
 const Header = styled(StyledDiv)`
   align-self: stretch;
   line-height: 2rem;
-  background-color: ${PINK};
+  background-color: ${(props) => props.theme.COLOR.PINK};
   color: white;
   padding: 0.5rem 0;
   display: flex;
@@ -99,7 +98,7 @@ const Cell = styled(StyledDiv)`
 `;
 
 const CellTitleText = styled(StyledDiv)`
-  font-family: "Do Hyeon", sans-serif;
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   word-break: keep-all;
   color: #343a40;
 `;
@@ -107,7 +106,7 @@ const CellDesc = styled(StyledDiv)`
   flex: 5;
   word-break: keep-all;
   margin-bottom: 1rem;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: ${(props) => props.theme.FONT.NOTO};
 `;
 
 const CellTarget = styled(StyledDiv)`
@@ -115,7 +114,7 @@ const CellTarget = styled(StyledDiv)`
   flex-direction: column;
   word-break: keep-all;
   margin-bottom: 1rem;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: ${(props) => props.theme.FONT.NOTO};
   align-self: flex-end;
 `;
 
@@ -140,8 +139,8 @@ const HeaderTitle = styled(StyledDiv)`
 
 const ContentWrap = styled(StyledDiv)`
   align-self: stretch;
-  background-color: ${PINK};
-  font-family: "Do Hyeon", sans-serif;
+  background-color: ${(props) => props.theme.COLOR.PINK};
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   margin-top: -2px;
 `;
 

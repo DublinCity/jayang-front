@@ -5,37 +5,40 @@ import { useHistory } from "react-router-dom";
 
 const textArr = [
   {
-    title: "# J공동체",
-    desc: `J 공동체는 어쩌구 저쩌구 저쩌구.
-		20~25살까지 청년들이 함께 모여 교제합니다`,
+    title: "J공동체",
+    descStrong: ["예수님 안에서 기쁨과 사랑이 넘치는"],
+    ageDesc: "20살부터 26살까지의 청년들이 함께 모여서 교체합니다",
   },
   {
-    title: "# RE공동체",
-    desc: `RE공동체는 어쩌구 저쩌구 저쩌구.
-		26~32살 청년들이 함께 하고 있어요!`,
+    title: "RE공동체",
+    descStrong: [
+      "Recover(회복하는), Reaction(행동하는)",
+      "Remain(한결같은), Refresh(늘 새로운)",
+    ],
+    ageDesc: "27살부터 32살까지의 청년들이 함께 모여서 교체합니다",
   },
   {
-    title: "# 공감공동체",
-    desc: `공감공동체는 어쩌구 저쩌구 저쩌구
-		33살 이상 청년들이 모입니다!`,
+    title: "공감공동체",
+    descStrong: ["예수님과 교회 지체 간 공감하며 사랑하는"],
+    ageDesc: "34이상의 청년들이 함께 모여서 교체합니다",
   },
   {
-    title: "# 동행공동체",
-    titleNext: "(새가족부)",
-    desc: `교회에 처음 온 분들은 4주간 동행 공동체에서 함께 합니다.
-		4주동안 사랑으로 서로 교제하고, 양육하며 교회에 적응해 갑니다.`,
+    title: "동행공동체",
+    descStrong: ["새가족과 동행하는"],
+    ageDesc:
+      "교회에 처음 나오신 분들이 각 공동체로 등조하기 전 까지 함께하며 교회에 적응을 도와드립니다",
   },
 ];
 
 const CommunityWrapper = styled(StyledDiv)`
-  font-family: "Do Hyeon", sans-serif;
+  font-family: ${(props) => props.theme.FONT.DO_HYEON};
   display: flex;
   flex-direction: column;
 `;
 
 const Header = styled(StyledDiv)`
   line-height: 2rem;
-  background-color: #f0c41b;
+  background-color: ${(props) => props.theme.COLOR.YELLOW};
   color: white;
   padding: 0.5rem 0;
   display: flex;
@@ -52,24 +55,41 @@ const BackBtn = styled.svg.attrs({
 `;
 
 const Cell = styled(StyledDiv)`
+  font-family: ${(props) => props.theme.FONT.NOTO};
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 2rem 1rem 3rem 1rem;
-  border-bottom: 2px solid #2d3b54;
+  width: 330px;
+  margin: 1rem auto;
+  line-height: 1.6;
+
+  ::after {
+    content: "";
+    width: 60%;
+    margin: auto;
+    padding-top: 2rem;
+    border-bottom: 2px solid #ced4da;
+  }
+
+  :last-child::after {
+    content: "";
+    width: 0;
+  }
 `;
 const CellTitleWrap = styled(StyledDiv)`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  margin: 1rem 0;
   flex: 2;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.5rem;
   word-break: keep-all;
   color: #343a40;
   display: flex;
+  font-weight: bold;
 `;
 const CellDesc = styled(StyledDiv)`
+  margin: 1rem;
   flex: 5;
   word-break: keep-all;
 `;
@@ -93,6 +113,32 @@ const HeaderTitle = styled(StyledDiv)`
   word-break: keep-all;
 `;
 
+const PageTitleWrapper = styled(StyledDiv)`
+  margin: 70px auto;
+  width: 270px;
+  border: 1rem solid ${(props) => props.theme.COLOR.YELLOW};
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  ::before {
+    content: "";
+    display: block;
+    padding-bottom: 70px;
+  }
+  ::after {
+    content: "";
+    display: block;
+    padding-bottom: 70px;
+  }
+`;
+
+const PageTitle = styled(StyledDiv)`
+  background-color: white;
+  padding: 10% 0;
+`;
+
 function Community() {
   const history = useHistory();
   return (
@@ -111,28 +157,32 @@ function Community() {
               </g>
             </BackBtn>
           </BackWrapper>
-          <HeaderTitle fontSize="1.7rem">
-            자양교회 청년부를 소개합니다.
-          </HeaderTitle>
+          <HeaderTitle fontSize="1.7rem">청년부 소개</HeaderTitle>
         </Header>
-        {textArr.map(({ title, desc, titleNext }) => (
+        <PageTitleWrapper>
+          <PageTitle fontSize="3.5rem" color="black">
+            청년 공동체 소개
+          </PageTitle>
+        </PageTitleWrapper>
+        {textArr.map(({ title, descStrong, ageDesc }) => (
           <Cell key={title}>
             <CellTitleWrap>
-              <CellTitleText fontSize="3rem">
-                {title}
-                <div
-                  style={{
-                    alignSelf: "center",
-                    fontSize: "1.5rem",
-                    marginBottom: "-1rem",
-                    marginLeft: "3px",
-                  }}
-                >
-                  {titleNext}
-                </div>
-              </CellTitleText>
+              <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
+              &nbsp;<span style={{ lineHeight: "1.8rem" }}>는</span>
             </CellTitleWrap>
-            <CellDesc>{desc}</CellDesc>
+            <CellDesc>
+              <span style={{ color: "#f03e3e" }}>
+                {descStrong[0]}
+                {descStrong[1] && (
+                  <>
+                    <br />
+                    {descStrong[1]}
+                  </>
+                )}
+              </span>{" "}
+              공동체입니다!
+            </CellDesc>
+            <CellDesc>{ageDesc}</CellDesc>
           </Cell>
         ))}
       </CommunityWrapper>

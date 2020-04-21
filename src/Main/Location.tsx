@@ -9,7 +9,7 @@ import ParkingSVG from "../SVG/Parking";
 const LocationWrapper = styled.div`
   padding: 0 2rem 2rem 2rem;
   background-color: white;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: ${(props) => props.theme.FONT.NOTO};
   max-width: 1114px;
   margin: auto;
 `;

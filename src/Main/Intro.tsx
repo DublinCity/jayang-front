@@ -13,7 +13,7 @@ const IntroWrapper = styled.div`
   top: 0;
   z-index: -1;
 
-  background-color: #f0c41b;
+  background-color: ${(props) => props.theme.COLOR.YELLOW};
   background-image: url(${mainPCBgImg});
   background-position: center;
   background-size: contain;
