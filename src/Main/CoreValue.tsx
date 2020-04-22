@@ -39,7 +39,7 @@ const CoreValue = styled.div`
     bottom: -4rem;
     right: 0;
     left: 0;
-    border-bottom: 1px solid ${(props) => props.theme.COLOR.GRAY_BORDER};
+    border-bottom: 2px solid ${(props) => props.theme.COLOR.GRAY_BORDER};
     width: 50%;
     content: "";
     margin: 2rem auto;

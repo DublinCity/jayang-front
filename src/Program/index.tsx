@@ -82,12 +82,21 @@ const Cell = styled(StyledDiv)`
   display: flex;
   align-items: flex-start;
   width: 330px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   line-height: 1.6;
+  flex-wrap: wrap;
+  justify-content: center;
 
   ::after {
+    width: 230px;
     content: "";
-    padding-bottom: 9rem;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid ${(props) => props.theme.COLOR.GRAY_BORDER};
+  }
+  :last-child::after {
+    content: "";
+    padding-bottom: 8rem;
+    width: 0;
   }
 `;
 const CellTitleWrap = styled(StyledDiv)`
