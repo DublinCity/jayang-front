@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
+import { CellColumn } from "../Common/Cell";
 
 const textArr = [
   {
@@ -105,7 +106,7 @@ const CellTitleWrap = styled(StyledDiv)`
   width: 95px;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 1.3rem;
+  font-size: 16px;
   text-align: center;
   white-space: nowrap;
   word-break: keep-all;
@@ -113,6 +114,7 @@ const CellTitleText = styled(StyledDiv)`
   font-weight: bold;
 `;
 const CellDesc = styled(StyledDiv)`
+  font-size: 13px;
   display: inline-block;
   margin: 0;
   margin-left: 1.5rem;
@@ -192,13 +194,13 @@ function Community() {
           </PageTitle>
         </PageTitleWrapper>
         {textArr.map(({ title, title2, ageDesc }) => (
-          <Cell key={title}>
+          <CellColumn key={title}>
             <CellTitleWrap>
               <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
               <CellTitleText>{title2}</CellTitleText>
             </CellTitleWrap>
             <CellDesc>{ageDesc}</CellDesc>
-          </Cell>
+          </CellColumn>
         ))}
       </CommunityWrapper>
     </>

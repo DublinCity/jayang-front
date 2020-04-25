@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
 		@media screen and (min-width: 768px){
 			min-width: 1120px;
 		}
-	}
 `;
 
 export const COLOR = {
@@ -18,6 +17,8 @@ export const COLOR = {
   BLUE: "#1976d2",
   PINK: "#fc5765",
   GREEN: "#2f9e44",
+  GRAPE: "#9c36b5",
+  VIOLET: "#7048e8",
   GRAY_BORDER: "#e9ecef",
   GRAY_7: "#495057",
 } as const;

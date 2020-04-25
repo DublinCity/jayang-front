@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
+import { Cell, CellDesc } from "../Common/Cell";
 
 const textArr = [
   {
@@ -54,27 +55,6 @@ const BackBtn = styled.svg.attrs({
   margin-left: -1px;
 `;
 
-const Cell = styled(StyledDiv)`
-  font-family: ${(props) => props.theme.FONT.NOTO};
-  display: flex;
-  flex-direction: column;
-  width: 330px;
-  margin: 1rem auto;
-  line-height: 1.6;
-
-  ::after {
-    content: "";
-    width: 60%;
-    margin: auto;
-    padding-top: 2rem;
-    border-bottom: 2px solid #ced4da;
-  }
-
-  :last-child::after {
-    content: "";
-    width: 0;
-  }
-`;
 const CellTitleWrap = styled(StyledDiv)`
   display: flex;
   align-items: flex-end;
@@ -82,16 +62,11 @@ const CellTitleWrap = styled(StyledDiv)`
   flex: 2;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 1.5rem;
+  font-size: 17px;
   word-break: keep-all;
   color: #343a40;
   display: flex;
   font-weight: bold;
-`;
-const CellDesc = styled(StyledDiv)`
-  margin: 1rem;
-  flex: 5;
-  word-break: keep-all;
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -168,7 +143,7 @@ function Community() {
           <Cell key={title}>
             <CellTitleWrap>
               <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
-              &nbsp;<span style={{ lineHeight: "1.8rem" }}>는</span>
+              &nbsp;<span style={{ fontSize: "14px" }}>는</span>
             </CellTitleWrap>
             <CellDesc>
               <span style={{ color: "#f03e3e" }}>

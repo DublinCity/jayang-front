@@ -1,75 +1,91 @@
 import React from "react";
 import styled from "styled-components";
-
 import { StyledDiv } from "../customComponent";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { COLOR } from "../GlobalStyle";
+import { CellColumn } from "../Common/Cell";
 
 const basicEdu = [
   {
     title: "새가족 교육",
+    title2: "",
     desc: "두근두근~ 자양교회 청년부에서의 새로운 출발! 새가족 교육",
+    when: "주일 오후 3시",
+    howLong: "등록 시점부터 4주",
     who: "자양교회 처음 등록하는 분들 누구나",
-    when: "등록 시점부터 4주",
   },
   {
-    title: "일대일 동반자반",
+    title: "일대일",
+    title2: "동반자반",
     desc: "신앙을 함께할 든든한 멘토와 함께! 일대일 동반자반",
+    when: "상·하반기 1회",
+    howLong: "총 12주",
     who: "새가족 교육 수료자 이상. 희망하는 사람 누구나",
-    when: "상·하반기 1회씩. 12주 과정",
+  },
+];
+
+const advanceEdu = [
+  {
+    title: "일대일",
+    title2: "양육자반",
+    desc: "영혼을 돌보는 목자의 삶이란? 일대일 양육자반",
+    when: "상·하반기 1회",
+    howLong: "총 12주",
+    who: "동반자반 교육 수료자 이상",
+  },
+  {
+    title: "JDTS",
+    title2: "",
+    desc: "예수님을 더 닮고 싶은 청년들, 여기로 모여라!",
+    when: "상반기 1회",
+    howLong: "총 13주(해외 단기선교 1주 포함)",
+    who: "동반자반 교육 수료자 이상",
+  },
+  {
+    title: "LTS",
+    title2: "",
+    desc: "사랑 넘치는 사랑방 만들기 프로젝트! 사랑방 리더학교",
+    when: "상·하반기 1회",
+    howLong: "상반기 4주, 하반기 2주",
+    who: "사랑방 리더, 부리더, 리더 추천자 1인",
+  },
+  {
+    title: "전도폭발",
+    title2: "XEE",
+    desc: "땅 끝까지 전하라! 사람을 낚는 어부가 되게 하리라~",
+    who: "동반자반 교육 수료자 이상.",
   },
 ];
 
 const commonEdu = [
   {
     title: "큐티스쿨",
+    title2: "",
     desc: "큐티는 도대체 어떻게 하는 겁니까!? 궁금하다면 큐티스쿨!",
+    when: "2020년 상반기",
+    howLong: "1회 특강",
     who: "자양교회 청년이라면 누구나",
   },
   {
-    title: "성경 파노라마",
+    title: "성경",
+    title2: "파노라마",
     desc: "성경 파노라마 교육 들으면 어려운 성경이 술술~",
+    when: "상·하반기 1회(각각 구약/신약)",
+    howLong: "상·하반기 각각 3주",
     who: "자양교회 청년이라면 누구나",
-    when: "상반기 ‘구약’ 3주 / 하반기 ‘신약‘ 3주",
   },
 ];
 
-const advanceEdu = [
-  {
-    title: "일대일 양육자반",
-    desc: "영혼을 돌보는 목자의 삶이란? 일대일 양육자반",
-    who: "동반자반 교육 수료자 이상",
-    when: "상·하반기 1회씩. 12주 과정",
-  },
-  {
-    title: "JDTS",
-    desc: "예수님을 더 닮고 싶은 청년들, 여기로 모여라!",
-    who: "동반자반 교육 수료자 이상",
-    when: "상반기1회. 13주 과정(해외 단기선교 1주 포함)",
-  },
-  {
-    title: "LTS",
-    desc: "사랑 넘치는 사랑방 만들기 프로젝트! 사랑방 리더학교",
-    who: "사랑방 리더, 부리더, 리더 추천자 1인",
-    when: "상반기 4주, 하반기 2주",
-  },
-  {
-    title: "전도폭발 XEE",
-    desc: "땅 끝까지 전하라! 사람을 낚는 어부가 되게 하리라~",
-    who: "동반자반 교육 수료자 이상.",
-  },
-];
-
-const CommunityWrapper = styled(StyledDiv)`
+const EducationWrapper = styled(StyledDiv)`
   font-family: ${(props) => props.theme.FONT.DO_HYEON};
   display: flex;
   flex-direction: column;
-  align-items: center;
+  letter-spacing: -0.06rem;
 `;
 
-const Header = styled(StyledDiv)`
-  align-self: stretch;
+const Header = styled(StyledDiv)<{ backColor: keyof typeof COLOR }>`
   line-height: 2rem;
-  background-color: ${(props) => props.theme.COLOR.PINK};
+  background-color: ${(props) => props.theme.COLOR[props.backColor]};
   color: white;
   padding: 0.5rem 0;
   display: flex;
@@ -86,36 +102,47 @@ const BackBtn = styled.svg.attrs({
 `;
 
 const Cell = styled(StyledDiv)`
-  margin: 0;
-  padding: 2rem 1rem 3rem 1rem;
+  font-family: ${(props) => props.theme.FONT.NOTO};
   display: flex;
-  flex-direction: column;
-  border-bottom: 2px solid #2d3b54;
+  align-items: flex-start;
+  width: 330px;
+  margin: 2rem auto;
+  line-height: 1.6;
+  flex-wrap: wrap;
+  justify-content: center;
 
-  @media (min-width: 800px) {
-    width: 800px;
+  ::after {
+    width: 230px;
+    content: "";
+    padding-bottom: 5rem;
+    border-bottom: 2px solid ${(props) => props.theme.COLOR.GRAY_BORDER};
+  }
+  :last-child::after {
+    content: "";
+    padding-bottom: 8rem;
+    width: 0;
   }
 `;
-
+const CellTitleWrap = styled(StyledDiv)`
+  align-items: flex-end;
+  margin: 0;
+  width: 95px;
+`;
 const CellTitleText = styled(StyledDiv)`
-  font-family: ${(props) => props.theme.FONT.DO_HYEON};
+  font-size: 1.1rem;
+  text-align: center;
+  white-space: nowrap;
   word-break: keep-all;
   color: #343a40;
+  font-weight: bold;
 `;
 const CellDesc = styled(StyledDiv)`
-  flex: 5;
+  display: inline-block;
+  margin: 0;
+  margin-left: 1.5rem;
+  width: 200px;
   word-break: keep-all;
-  margin-bottom: 1rem;
-  font-family: ${(props) => props.theme.FONT.NOTO};
-`;
-
-const CellTarget = styled(StyledDiv)`
-  display: flex;
-  flex-direction: column;
-  word-break: keep-all;
-  margin-bottom: 1rem;
-  font-family: ${(props) => props.theme.FONT.NOTO};
-  align-self: flex-end;
+  font-size: 13px;
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -137,177 +164,136 @@ const HeaderTitle = styled(StyledDiv)`
   word-break: keep-all;
 `;
 
-const ContentWrap = styled(StyledDiv)`
-  align-self: stretch;
-  background-color: ${(props) => props.theme.COLOR.PINK};
-  font-family: ${(props) => props.theme.FONT.DO_HYEON};
-  margin-top: -2px;
-`;
-
-const ContentSectionTitle = styled(StyledDiv)`
-  margin: 1rem auto;
-  padding: 0.7rem;
-  white-space: nowrap;
-  border: 2px solid white;
-
-  color: white;
-  align-self: center;
-  box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
-  max-width: 800px;
-
-  @media (max-width: 768px) {
-    margin: 1.5rem;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: white;
-  :visited {
-    color: white;
-  }
-`;
-
-const CellTargetWrap = styled(StyledDiv)`
+const PageTitleWrapper = styled(StyledDiv)<{ borderColor: keyof typeof COLOR }>`
+  margin: 70px auto;
+  width: 270px;
+  border: 1rem solid ${(props) => props.theme.COLOR[props.borderColor]};
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  ::before {
+    content: "";
+    display: block;
+    padding-bottom: 70px;
+  }
+  ::after {
+    content: "";
+    display: block;
+    padding-bottom: 70px;
+  }
+`;
+
+const PageTitle = styled(StyledDiv)`
+  background-color: white;
+  padding: 10% 0;
+  text-align: center;
+`;
+
+const EduInfo = styled(StyledDiv)`
+  display: flex;
 `;
 
 const EduTitle = styled(StyledDiv)`
-  align-self: stretch;
-  background-color: #212529;
-  color: white;
-  padding: 0.5rem 0;
-  margin-top: -2px;
+  width: 45px;
 `;
 
-function Community() {
+const EduDesc = styled(StyledDiv)`
+  flex: 5;
+`;
+
+const Desc = styled(StyledDiv)`
+  margin-bottom: 1rem;
+`;
+const EduItem = ({ title, content }: { title?: string; content?: string }) => (
+  <EduInfo>
+    {content && (
+      <>
+        <EduTitle>{title}</EduTitle> <EduDesc>{content}</EduDesc>
+      </>
+    )}
+  </EduInfo>
+);
+
+function Education() {
+  const history = useHistory();
   return (
     <>
-      <CommunityWrapper>
-        <Header>
-          <Link to="/">
-            {/* TODO: 소모임 페이지에서 왔을때, 고려해서 goBack 해야함. */}
-            <BackWrapper>
-              <BackBtn>
-                <g>
-                  <g id="chevron-left">
-                    <polygon
-                      points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153"
-                      fill="white"
-                    />
-                  </g>
+      <EducationWrapper>
+        <Header backColor="PINK">
+          <BackWrapper onClick={() => history.goBack()}>
+            <BackBtn>
+              <g>
+                <g id="chevron-left">
+                  <polygon
+                    points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153"
+                    fill="white"
+                  />
                 </g>
-              </BackBtn>
-            </BackWrapper>
-          </Link>
-          <HeaderTitle fontSize="2rem">교육 프로그램 안내</HeaderTitle>
+              </g>
+            </BackBtn>
+          </BackWrapper>
+          <HeaderTitle fontSize="1.7rem">청년부 소개</HeaderTitle>
         </Header>
-        <EduTitle fontSize="3rem" textAlign="center">
-          양육 기본 과정
-        </EduTitle>
-        {basicEdu.map(({ title, desc, who, when }) => (
-          <Cell key={title}>
-            <CellTitleText fontSize="2rem">{title}</CellTitleText>
-            <CellDesc fontSize="1.5rem;">{desc}</CellDesc>
-            <CellTargetWrap>
-              <CellTarget key={who}>
-                <StyledDiv fontSize="1.3rem" textAlign="right" fontWeight="700">
-                  Who?
-                </StyledDiv>
-                <StyledDiv textAlign="right">{who} </StyledDiv>
-                <StyledDiv fontSize="1.3rem" textAlign="right" fontWeight="700">
-                  When?
-                </StyledDiv>
-                <StyledDiv textAlign="right">{when} </StyledDiv>
-              </CellTarget>
-            </CellTargetWrap>
-          </Cell>
+        <PageTitleWrapper borderColor="PINK">
+          <PageTitle fontSize="3.5rem">양육 기본 과정</PageTitle>
+        </PageTitleWrapper>
+        {basicEdu.map(({ title, title2, desc, when, who, howLong }) => (
+          <CellColumn key={title}>
+            <CellTitleWrap>
+              <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
+              <CellTitleText>{title2}</CellTitleText>
+            </CellTitleWrap>
+            <CellDesc>
+              <Desc>{desc}</Desc>
+              <EduItem title="언  제?" content={when} />
+              <EduItem title="얼마나?" content={howLong} />
+              <EduItem title="누  구?" content={who} />
+            </CellDesc>
+          </CellColumn>
         ))}
-        <EduTitle fontSize="3rem" textAlign="center">
-          양육 공통 과정
-        </EduTitle>
-        {commonEdu.map(({ title, desc, who, when }) => (
-          <Cell key={title}>
-            <CellTitleText fontSize="2rem">{title}</CellTitleText>
-            <CellDesc fontSize="1.5rem;">{desc}</CellDesc>
-            <CellTargetWrap>
-              <CellTarget key={`${who}${when}`}>
-                {who && (
-                  <>
-                    <StyledDiv
-                      fontSize="1.3rem"
-                      textAlign="right"
-                      fontWeight="700"
-                    >
-                      Who?
-                    </StyledDiv>
-                    <StyledDiv textAlign="right">{who} </StyledDiv>
-                  </>
-                )}
-                {when && (
-                  <>
-                    <StyledDiv
-                      fontSize="1.3rem"
-                      textAlign="right"
-                      fontWeight="700"
-                    >
-                      When?
-                    </StyledDiv>
-                    <StyledDiv textAlign="right">{when} </StyledDiv>
-                  </>
-                )}
-              </CellTarget>
-            </CellTargetWrap>
-          </Cell>
+      </EducationWrapper>
+      <EducationWrapper>
+        <PageTitleWrapper borderColor="GRAPE">
+          <PageTitle fontSize="3.5rem">양육 심화 과정</PageTitle>
+        </PageTitleWrapper>
+        {advanceEdu.map(({ title, title2, desc, when, who, howLong }) => (
+          <CellColumn key={title}>
+            <CellTitleWrap>
+              <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
+              <CellTitleText>{title2}</CellTitleText>
+            </CellTitleWrap>
+            <CellDesc>
+              <Desc>{desc}</Desc>
+              <EduItem title="언 제?" content={when} />
+              <EduItem title="얼마나?" content={howLong} />
+              <EduItem title="누 구?" content={who} />
+            </CellDesc>
+          </CellColumn>
         ))}
-        <EduTitle fontSize="3rem" textAlign="center">
-          양육 심화 과정
-        </EduTitle>
-        {advanceEdu.map(({ title, desc, who, when }) => (
-          <Cell key={title}>
-            <CellTitleText fontSize="2rem">{title}</CellTitleText>
-            <CellDesc fontSize="1.5rem;">{desc}</CellDesc>
-            <CellTargetWrap>
-              <CellTarget key={`${who}${when}`}>
-                {who && (
-                  <>
-                    <StyledDiv
-                      fontSize="1.3rem"
-                      textAlign="right"
-                      fontWeight="700"
-                    >
-                      Who?
-                    </StyledDiv>
-                    <StyledDiv textAlign="right">{who} </StyledDiv>
-                  </>
-                )}
-                {when && (
-                  <>
-                    <StyledDiv
-                      fontSize="1.3rem"
-                      textAlign="right"
-                      fontWeight="700"
-                    >
-                      When?
-                    </StyledDiv>
-                    <StyledDiv textAlign="right">{when} </StyledDiv>
-                  </>
-                )}
-              </CellTarget>
-            </CellTargetWrap>
-          </Cell>
+      </EducationWrapper>
+      <EducationWrapper>
+        <PageTitleWrapper borderColor="VIOLET">
+          <PageTitle fontSize="3.5rem">양육 공통 과정</PageTitle>
+        </PageTitleWrapper>
+        {commonEdu.map(({ title, title2, desc, when, who, howLong }) => (
+          <CellColumn key={title}>
+            <CellTitleWrap>
+              <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
+              <CellTitleText>{title2}</CellTitleText>
+            </CellTitleWrap>
+            <CellDesc>
+              <Desc>{desc}</Desc>
+              <EduItem title="언 제?" content={when} />
+              <EduItem title="얼마나?" content={howLong} />
+              <EduItem title="누 구?" content={who} />
+            </CellDesc>
+          </CellColumn>
         ))}
-        <ContentWrap fontSize="1.2rem" textAlign="center">
-          <StyledLink to="">
-            <ContentSectionTitle fontSize="1.5rem" textAlign="center">
-              교육 신청하기!
-            </ContentSectionTitle>
-          </StyledLink>
-        </ContentWrap>
-      </CommunityWrapper>
+      </EducationWrapper>
     </>
   );
 }
 
-export default Community;
+export default Education;
