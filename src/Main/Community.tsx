@@ -23,7 +23,7 @@ const detailLinkInfo = [
   {
     desc: ["청년 공동체", "모임을", "소개합니다"],
     img: detailImg3,
-    url: "",
+    url: "gathering",
   },
   {
     desc: ["청년 공동체", "교육을", "소개합니다"],

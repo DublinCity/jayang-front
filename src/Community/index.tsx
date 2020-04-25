@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Cell, CellDesc } from "../Common/Cell";
 
 const textArr = [
@@ -114,6 +114,47 @@ const PageTitle = styled(StyledDiv)`
   padding: 10% 0;
 `;
 
+const ContentSectionTitle = styled(StyledDiv)`
+  margin: 1rem auto;
+  padding: 0.7rem;
+  white-space: nowrap;
+  border: 2px solid white;
+
+  color: white;
+  align-self: center;
+  box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
+
+  max-width: 800px;
+
+  @media (max-width: 768px) {
+    margin: 1.5rem;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 17px;
+  text-decoration: none;
+  padding: 0.5rem;
+  border: 3px solid white;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  margin: 1rem;
+  color: white;
+  :visited {
+    color: white;
+  }
+`;
+const ContentWrap = styled(StyledDiv)`
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+  width: 100%;
+  background-color: ${(props) => props.theme.COLOR.YELLOW};
+  @media (min-width: 768px) {
+    padding: 0;
+    font-size: 2rem;
+  }
+`;
+
 function Community() {
   const history = useHistory();
   return (
@@ -160,6 +201,11 @@ function Community() {
             <CellDesc>{ageDesc}</CellDesc>
           </Cell>
         ))}
+        <ContentWrap>
+          <StyledLink to="people">
+            청년부를 섬기는 사람들이 궁금하다면?
+          </StyledLink>
+        </ContentWrap>
       </CommunityWrapper>
     </>
   );

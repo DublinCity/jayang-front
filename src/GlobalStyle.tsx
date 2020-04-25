@@ -19,6 +19,7 @@ export const COLOR = {
   GREEN: "#2f9e44",
   GRAPE: "#9c36b5",
   VIOLET: "#7048e8",
+  ORANGE: "#f76707",
   GRAY_BORDER: "#e9ecef",
   GRAY_7: "#495057",
 } as const;
