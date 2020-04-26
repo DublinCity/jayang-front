@@ -7,6 +7,7 @@ import Main from "./Main/index";
 import Community from "./Community/index";
 import Gathering from "./Gathering/index";
 import Education from "./Education/index";
+import People from "./People/index";
 import Program from "./Program/index";
 import ScrollRestoration from "./Utils/ScrollTop";
 
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/community">
             <Community />
+          </Route>
+          <Route path="/people">
+            <People />
           </Route>
           <Route path="/gathering">
             <Gathering />
