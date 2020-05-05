@@ -71,7 +71,7 @@ const commonEdu = [
     title: "성경",
     title2: "파노라마",
     desc: ["성경 파노라마 교육 들으면 어려운 성경이 술술~"],
-    when: "상·하반기 1회(각각 구약/신약)",
+    when: ["상·하반기 1회", "(각각 구약/신약)"],
     howLong: "상·하반기 각각 3주",
     who: "자양교회 청년이라면 누구나",
   },
@@ -196,7 +196,7 @@ const PageTitle = styled(StyledDiv)`
 const EduInfo = styled(StyledDiv)`
   display: flex;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 25px;
   letter-spacing: -0.04rem;
 `;
 
