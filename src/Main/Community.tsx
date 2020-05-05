@@ -3,31 +3,28 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import titleBackground from "../img/ground.png";
-import detailImg1 from "../img/detailImg1.jpeg";
-import detailImg2 from "../img/detailImg2.jpeg";
-import detailImg3 from "../img/detailImg3.jpeg";
-import detailImg4 from "../img/detailImg4.jpeg";
 import Arrow from "../SVG/Arrow";
+import { COLOR } from "../GlobalStyle";
 
 const detailLinkInfo = [
   {
     desc: ["자양교회", "청년 공동체를", "소개합니다"],
-    img: detailImg1,
+    bgColor: COLOR.YELLOW,
     url: "/community",
   },
   {
     desc: ["청년 공동체", "프로그램을", "소개합니다"],
-    img: detailImg2,
+    bgColor: COLOR.PINK,
     url: "/program",
   },
   {
     desc: ["청년 공동체", "모임을", "소개합니다"],
-    img: detailImg3,
+    bgColor: COLOR.ORANGE,
     url: "gathering",
   },
   {
     desc: ["청년 공동체", "교육을", "소개합니다"],
-    img: detailImg4,
+    bgColor: COLOR.OCEAN_BLUE,
     url: "/education",
   },
 ];
@@ -71,16 +68,16 @@ const DetailLink = styled(Link)`
 
 const DetailLinkContent = styled(StyledDiv)`
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 30vh;
   display: flex;
-  background-image: url(${(props: { img: string }) => props.img});
+  background-color: ${(props: { bgColor: string }) => props.bgColor};
 `;
 
 const ContentWrap = styled(StyledDiv)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 1.4rem;
-  max-width: 1120px;
+  /* max-width: 1120px; */
   width: 100%;
 
   @media (min-width: 768px) {
@@ -156,8 +153,8 @@ const Community = () => (
       <ImgTag />
     </Title>
     <ContentWrap textAlign="center">
-      {detailLinkInfo.map(({ img, desc, url }, i) => (
-        <DetailLinkContent key={i} img={img} textAlign="center">
+      {detailLinkInfo.map(({ bgColor, desc, url }, i) => (
+        <DetailLinkContent key={i} bgColor={bgColor} textAlign="center">
           <DetailLink key={i} to={url}>
             {desc.map((d, i) => (
               <StyledDiv key={i} lineHeight="1.5">

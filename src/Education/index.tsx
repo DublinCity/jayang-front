@@ -4,23 +4,24 @@ import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
 import { COLOR } from "../GlobalStyle";
 import { CellColumn } from "../Common/Cell";
+import Desc from "../Common/Desc";
 
 const basicEdu = [
   {
-    title: "새가족 교육",
-    title2: "",
-    desc: "두근두근~ 자양교회 청년부에서의 새로운 출발! 새가족 교육",
+    title: "새가족",
+    title2: "교육",
+    desc: ["두근두근~", "자양교회 청년부에서의", "새로운 출발! 새가족 교육"],
     when: "주일 오후 3시",
     howLong: "등록 시점부터 4주",
-    who: "자양교회 처음 등록하는 분들 누구나",
+    who: ["자양교회 청년부", "처음 등록하는 누구나!"],
   },
   {
     title: "일대일",
     title2: "동반자반",
-    desc: "신앙을 함께할 든든한 멘토와 함께! 일대일 동반자반",
+    desc: ["신앙을 함께할", "든든한 멘토와 함께!", "일대일 동반자반"],
     when: "상·하반기 1회",
     howLong: "총 12주",
-    who: "새가족 교육 수료자 이상. 희망하는 사람 누구나",
+    who: ["새가족 교육 수료자 이상", "희망하는 사람 누구나"],
   },
 ];
 
@@ -28,31 +29,31 @@ const advanceEdu = [
   {
     title: "일대일",
     title2: "양육자반",
-    desc: "영혼을 돌보는 목자의 삶이란? 일대일 양육자반",
+    desc: ["영혼을 돌보는 목자의 삶이란?", "일대일 양육자반"],
     when: "상·하반기 1회",
     howLong: "총 12주",
-    who: "동반자반 교육 수료자 이상",
+    who: ["동반자반 교육", "수료자 이상"],
   },
   {
     title: "JDTS",
     title2: "",
-    desc: "예수님을 더 닮고 싶은 청년들, 여기로 모여라!",
+    desc: ["예수님을 더", "닮고 싶은 청년들", "여기로 모여라!"],
     when: "상반기 1회",
-    howLong: "총 13주(해외 단기선교 1주 포함)",
-    who: "동반자반 교육 수료자 이상",
+    howLong: ["총 13주", "(해외 단기선교 1주 포함)"],
+    who: ["동반자반 교육", "수료자 이상"],
   },
   {
     title: "LTS",
     title2: "",
-    desc: "사랑 넘치는 사랑방 만들기 프로젝트! 사랑방 리더학교",
+    desc: ["사랑 넘치는 사랑방 만들기 프로젝트! 사랑방 리더학교"],
     when: "상·하반기 1회",
     howLong: "상반기 4주, 하반기 2주",
-    who: "사랑방 리더, 부리더, 리더 추천자 1인",
+    who: ["사랑방 리더·부리더,", "리더 추천자 1인"],
   },
   {
     title: "전도폭발",
     title2: "XEE",
-    desc: "땅 끝까지 전하라! 사람을 낚는 어부가 되게 하리라~",
+    desc: ["땅 끝까지 전하라! 사람을 낚는 어부가 되게 하리라~"],
     who: "동반자반 교육 수료자 이상.",
   },
 ];
@@ -61,7 +62,7 @@ const commonEdu = [
   {
     title: "큐티스쿨",
     title2: "",
-    desc: "큐티는 도대체 어떻게 하는 겁니까!? 궁금하다면 큐티스쿨!",
+    desc: ["큐티는 도대체 어떻게 하는 겁니까!? 궁금하다면 큐티스쿨!"],
     when: "2020년 상반기",
     howLong: "1회 특강",
     who: "자양교회 청년이라면 누구나",
@@ -69,7 +70,7 @@ const commonEdu = [
   {
     title: "성경",
     title2: "파노라마",
-    desc: "성경 파노라마 교육 들으면 어려운 성경이 술술~",
+    desc: ["성경 파노라마 교육 들으면 어려운 성경이 술술~"],
     when: "상·하반기 1회(각각 구약/신약)",
     howLong: "상·하반기 각각 3주",
     who: "자양교회 청년이라면 누구나",
@@ -129,7 +130,8 @@ const CellTitleWrap = styled(StyledDiv)`
   width: 95px;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 1.1rem;
+  font-size: 20.8px;
+  line-height: 24px;
   text-align: center;
   white-space: nowrap;
   word-break: keep-all;
@@ -193,24 +195,35 @@ const PageTitle = styled(StyledDiv)`
 
 const EduInfo = styled(StyledDiv)`
   display: flex;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.04rem;
 `;
 
 const EduTitle = styled(StyledDiv)`
-  width: 45px;
+  width: 55px;
 `;
 
 const EduDesc = styled(StyledDiv)`
   flex: 5;
 `;
 
-const Desc = styled(StyledDiv)`
-  margin-bottom: 1rem;
-`;
-const EduItem = ({ title, content }: { title?: string; content?: string }) => (
+const EduItem = ({
+  title,
+  content,
+}: {
+  title?: string;
+  content?: string | string[];
+}) => (
   <EduInfo>
     {content && (
       <>
-        <EduTitle>{title}</EduTitle> <EduDesc>{content}</EduDesc>
+        <EduTitle>{title}</EduTitle>
+        <EduDesc>
+          {Array.isArray(content)
+            ? content.map((item, id) => <div key={id}>{item}</div>)
+            : content}
+        </EduDesc>
       </>
     )}
   </EduInfo>
@@ -221,7 +234,7 @@ function Education() {
   return (
     <>
       <EducationWrapper>
-        <Header backColor="PINK">
+        <Header backColor="SKY_BLUE">
           <BackWrapper onClick={() => history.goBack()}>
             <BackBtn>
               <g>
@@ -236,7 +249,7 @@ function Education() {
           </BackWrapper>
           <HeaderTitle fontSize="1.7rem">청년부 소개</HeaderTitle>
         </Header>
-        <PageTitleWrapper borderColor="PINK">
+        <PageTitleWrapper borderColor="SKY_BLUE">
           <PageTitle fontSize="3.5rem">양육 기본 과정</PageTitle>
         </PageTitleWrapper>
         {basicEdu.map(({ title, title2, desc, when, who, howLong }) => (
@@ -246,7 +259,7 @@ function Education() {
               <CellTitleText>{title2}</CellTitleText>
             </CellTitleWrap>
             <CellDesc>
-              <Desc>{desc}</Desc>
+              <Desc desc={desc} />
               <EduItem title="언  제?" content={when} />
               <EduItem title="얼마나?" content={howLong} />
               <EduItem title="누  구?" content={who} />
@@ -255,7 +268,7 @@ function Education() {
         ))}
       </EducationWrapper>
       <EducationWrapper>
-        <PageTitleWrapper borderColor="GRAPE">
+        <PageTitleWrapper borderColor="OCEAN_BLUE">
           <PageTitle fontSize="3.5rem">양육 심화 과정</PageTitle>
         </PageTitleWrapper>
         {advanceEdu.map(({ title, title2, desc, when, who, howLong }) => (
@@ -265,7 +278,7 @@ function Education() {
               <CellTitleText>{title2}</CellTitleText>
             </CellTitleWrap>
             <CellDesc>
-              <Desc>{desc}</Desc>
+              <Desc desc={desc} />
               <EduItem title="언 제?" content={when} />
               <EduItem title="얼마나?" content={howLong} />
               <EduItem title="누 구?" content={who} />
@@ -274,7 +287,7 @@ function Education() {
         ))}
       </EducationWrapper>
       <EducationWrapper>
-        <PageTitleWrapper borderColor="VIOLET">
+        <PageTitleWrapper borderColor="DEEP_BLUE">
           <PageTitle fontSize="3.5rem">양육 공통 과정</PageTitle>
         </PageTitleWrapper>
         {commonEdu.map(({ title, title2, desc, when, who, howLong }) => (
@@ -284,7 +297,7 @@ function Education() {
               <CellTitleText>{title2}</CellTitleText>
             </CellTitleWrap>
             <CellDesc>
-              <Desc>{desc}</Desc>
+              <Desc desc={desc} />
               <EduItem title="언 제?" content={when} />
               <EduItem title="얼마나?" content={howLong} />
               <EduItem title="누 구?" content={who} />

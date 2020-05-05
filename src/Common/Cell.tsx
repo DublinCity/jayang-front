@@ -24,9 +24,20 @@ export const Cell = styled(StyledDiv)`
 `;
 
 export const CellDesc = styled(StyledDiv)`
-  font-size: 14px;
+  line-height: 27.5px;
+  font-size: 17px;
   margin-left: 20px;
   margin-bottom: 10px;
+  flex: 5;
+  word-break: keep-all;
+`;
+
+export const CellDesc2 = styled(StyledDiv)`
+  line-height: 25px;
+  font-size: 15px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  letter-spacing: -0.04rem;
   flex: 5;
   word-break: keep-all;
 `;

@@ -3,136 +3,37 @@ import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
 import { Cell } from "../Common/Cell";
-import bibleImg from "../img/1.png";
 
-const mock = [
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사", "자양교회 담임목사", "자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-  {
-    name: "이철규",
-    position: "목사",
-    src: bibleImg,
-    assign: ["자양교회 담임목사"],
-  },
-];
+import {
+  importMinisterImg,
+  importCheifImg,
+  importYouth1Img,
+  importYouth2Img,
+  importYouth3Img,
+} from "../Utils/index";
+import position from "./position";
+
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
+type Image = { [key: string]: string };
+const ministerImages: Dictionary<string> = importMinisterImg();
+const cheifImages: Dictionary<string> = importCheifImg();
+const youth1Img: Dictionary<string> = importYouth1Img();
+const youth2Img: Dictionary<string> = importYouth2Img();
+const youth3Img: Dictionary<string> = importYouth3Img();
+
+const imageMap = {
+  ...ministerImages,
+  ...cheifImages,
+  ...youth1Img,
+  ...youth2Img,
+  ...youth3Img,
+};
+
+const namaMap = position;
+console.log(imageMap);
 
 const PeopleWrapper = styled(StyledDiv)`
   font-family: ${(props) => props.theme.FONT.DO_HYEON};
@@ -228,36 +129,39 @@ const PersonWrap = styled(StyledDiv)`
     width: 300px;
   }
 `;
-const Avatar = styled.img.attrs((props: { src: string }) => ({
-  src: props.src,
-}))`
+
+const Avatar2 = styled.div<{ src: string }>`
   vertical-align: middle;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 2px solid rgba(25, 25, 25, 0.4);
+  background-image: url('${(props) => props.src}');
+  background-repeat: no-repeat;
+  background-size: 233px 295px;
+  background-position: center 6%;
 
   @media (min-width: 700px) {
+    background-size: auto auto;
     width: 200px;
     height: 200px;
-  }
-
-  :hover {
-    color: CornflowerBlue;
   }
 `;
 
 const Name = styled.span`
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: 500;
 `;
 const Position = styled.span`
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 400;
 `;
 
 const Assign = styled.div`
-  font-size: 14px;
+  font-size: 17px;
   display: flex;
   flex-direction: column;
+  word-break: keep-all;
 `;
 
 const NameWrap = styled.div`
@@ -270,38 +174,57 @@ const NameWrap = styled.div`
 `;
 
 const Person = ({
-  src,
   name,
-  position,
-  assign,
+  assign = ["청년부 총괄", "RE J공동체"],
 }: {
-  src: string;
   name: string;
-  position: string;
   assign: string[];
-}) => (
-  <PersonWrap>
-    <Avatar src={src} />
-    <NameWrap>
-      <Name>{name}</Name> <Position>{position}</Position>
-    </NameWrap>
-    <Assign>
-      {assign.map((a) => (
-        <div key={a}>{a}</div>
-      ))}
-    </Assign>
-  </PersonWrap>
-);
+}) => {
+  const [imgName] = name.split(".");
+  const [realName, position] = imgName.split(" ");
+  return (
+    <PersonWrap>
+      <Avatar2 src={imageMap[name]} />
+      <NameWrap>
+        <Name>{realName}</Name> <Position>{position}</Position>
+      </NameWrap>
+      <Assign>
+        {assign &&
+          assign.map((a) => (
+            <StyledDiv key={a} textAlign="center" fontSize="17px">
+              {a}
+            </StyledDiv>
+          ))}
+      </Assign>
+    </PersonWrap>
+  );
+};
 
 const PersonContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   flex-wrap: wrap;
+  justify-items: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    font-size: 2rem;
+  }
 `;
 
 const WideCell = styled(Cell)`
   width: 100%;
-  padding: 0 10%;
+  padding: 0 3%;
+
+  @media (min-width: 768px) {
+    padding: 0 15%;
+  }
+
+  :after {
+    content: none;
+  }
 `;
 
 function People() {
@@ -329,14 +252,16 @@ function People() {
             청년 공동체 소개
           </PageTitle>
         </PageTitleWrapper>
-        <WideCell>
-          <CellTitleText>교역자</CellTitleText>
-          <PersonContainer>
-            {mock.map((people) => (
-              <Person key={people.name} {...people} />
-            ))}
-          </PersonContainer>
-        </WideCell>
+        {Object.entries(namaMap).map(([부서, 구성원]) => (
+          <WideCell key={부서}>
+            <CellTitleText>{부서}</CellTitleText>
+            <PersonContainer>
+              {Object.entries(구성원).map(([이름, 직책]) => (
+                <Person key={이름} name={이름} assign={직책} />
+              ))}
+            </PersonContainer>
+          </WideCell>
+        ))}
       </PeopleWrapper>
     </>
   );

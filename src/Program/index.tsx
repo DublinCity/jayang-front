@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
-import { CellColumn } from "../Common/Cell";
+import { CellColumn, CellDesc } from "../Common/Cell";
 
 const textArr = [
   {
@@ -62,7 +62,7 @@ const CommunityWrapper = styled(StyledDiv)`
 
 const Header = styled(StyledDiv)`
   line-height: 2rem;
-  background-color: ${(props) => props.theme.COLOR.GREEN};
+  background-color: ${(props) => props.theme.COLOR.PINK};
   color: white;
   padding: 0.5rem 0;
   display: flex;
@@ -106,20 +106,11 @@ const CellTitleWrap = styled(StyledDiv)`
   width: 95px;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 16px;
+  font-size: 20.8px;
   text-align: center;
   white-space: nowrap;
   word-break: keep-all;
-  color: #343a40;
   font-weight: bold;
-`;
-const CellDesc = styled(StyledDiv)`
-  font-size: 13px;
-  display: inline-block;
-  margin: 0;
-  margin-left: 1.5rem;
-  width: 200px;
-  word-break: keep-all;
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -144,7 +135,7 @@ const HeaderTitle = styled(StyledDiv)`
 const PageTitleWrapper = styled(StyledDiv)`
   margin: 70px auto;
   width: 270px;
-  border: 1rem solid ${(props) => props.theme.COLOR.GREEN};
+  border: 1rem solid ${(props) => props.theme.COLOR.PINK};
   display: flex;
   justify-content: center;
   flex-direction: column;

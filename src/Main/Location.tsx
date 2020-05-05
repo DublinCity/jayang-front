@@ -46,6 +46,7 @@ const SVGWrapper = styled(StyledDiv)`
 
 const MethodDesc = styled(StyledDiv)`
   flex: 1;
+  line-height: 1.6;
   word-break: keep-all;
 `;
 

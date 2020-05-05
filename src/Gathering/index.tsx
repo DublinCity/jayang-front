@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory } from "react-router-dom";
 import { COLOR } from "../GlobalStyle";
-import { CellColumn } from "../Common/Cell";
+import { CellColumn, CellDesc2, CellDesc } from "../Common/Cell";
 
 const gatheringInfo = [
   {
@@ -72,20 +72,11 @@ const CellTitleWrap = styled(StyledDiv)`
   width: 95px;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 1.1rem;
+  font-size: 20.8px;
   text-align: center;
   white-space: nowrap;
   word-break: keep-all;
-  color: #343a40;
   font-weight: bold;
-`;
-const CellDesc = styled(StyledDiv)`
-  display: inline-block;
-  margin: 0;
-  margin-left: 1.5rem;
-  width: 200px;
-  word-break: keep-all;
-  font-size: 13px;
 `;
 
 const BackWrapper = styled(StyledDiv)`
@@ -139,15 +130,17 @@ const EduInfo = styled(StyledDiv)`
 `;
 
 const EduTitle = styled(StyledDiv)`
-  width: 45px;
+  width: 60px;
 `;
 
 const EduDesc = styled(StyledDiv)`
-  flex: 5;
+  flex: 1;
 `;
 
-const Desc = styled(StyledDiv)`
+const Desc = styled(CellDesc)`
   margin-bottom: 1rem;
+  margin-left: 0;
+  font-size: 17px;
 `;
 const EduItem = ({
   title,
@@ -159,10 +152,10 @@ const EduItem = ({
   <EduInfo>
     {content && (
       <>
-        <EduTitle>{title}</EduTitle>{" "}
+        <EduTitle>{title}</EduTitle>
         <EduDesc>
           {Array.isArray(content)
-            ? content.map((item) => <div>{item}</div>)
+            ? content.map((item, id) => <div key={id}>{item}</div>)
             : content}
         </EduDesc>
       </>
@@ -201,11 +194,11 @@ function Gathering() {
               <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
               {title2 && <CellTitleText>{title2}</CellTitleText>}
             </CellTitleWrap>
-            <CellDesc>
+            <CellDesc2>
               <Desc>{desc}</Desc>
               <EduItem title="언  제?" content={when} />
               <EduItem title="어디서 ?" content={howLong} />
-            </CellDesc>
+            </CellDesc2>
           </CellColumn>
         ))}
       </GatheringWrapper>

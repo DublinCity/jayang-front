@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyledDiv } from "../customComponent";
 import { useHistory, Link } from "react-router-dom";
-import { Cell, CellDesc } from "../Common/Cell";
+import { Cell, CellDesc, CellDesc2 } from "../Common/Cell";
 
 const textArr = [
   {
@@ -21,7 +21,7 @@ const textArr = [
   {
     title: "공감공동체",
     descStrong: ["예수님과 교회 지체 간 공감하며 사랑하는"],
-    ageDesc: "34이상의 청년들이 함께 모여서 교체합니다",
+    ageDesc: "33살 이상의 청년들이 함께 모여서 교체합니다",
   },
   {
     title: "동행공동체",
@@ -62,7 +62,7 @@ const CellTitleWrap = styled(StyledDiv)`
   flex: 2;
 `;
 const CellTitleText = styled(StyledDiv)`
-  font-size: 17px;
+  font-size: 20.8px;
   word-break: keep-all;
   color: #343a40;
   display: flex;
@@ -114,25 +114,8 @@ const PageTitle = styled(StyledDiv)`
   padding: 10% 0;
 `;
 
-const ContentSectionTitle = styled(StyledDiv)`
-  margin: 1rem auto;
-  padding: 0.7rem;
-  white-space: nowrap;
-  border: 2px solid white;
-
-  color: white;
-  align-self: center;
-  box-shadow: 3px 3px 6px rgba(50, 50, 50, 0.7);
-
-  max-width: 800px;
-
-  @media (max-width: 768px) {
-    margin: 1.5rem;
-  }
-`;
-
 const StyledLink = styled(Link)`
-  font-size: 17px;
+  font-size: 20.8px;
   text-decoration: none;
   padding: 0.5rem;
   border: 3px solid white;
@@ -146,7 +129,7 @@ const StyledLink = styled(Link)`
 const ContentWrap = styled(StyledDiv)`
   display: flex;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 17px;
   width: 100%;
   background-color: ${(props) => props.theme.COLOR.YELLOW};
   @media (min-width: 768px) {
@@ -184,7 +167,7 @@ function Community() {
           <Cell key={title}>
             <CellTitleWrap>
               <CellTitleText>&ldquo;{title}&rdquo;</CellTitleText>
-              &nbsp;<span style={{ fontSize: "14px" }}>는</span>
+              &nbsp;<span style={{ fontSize: "17px" }}>는</span>
             </CellTitleWrap>
             <CellDesc>
               <span style={{ color: "#f03e3e" }}>
@@ -196,9 +179,10 @@ function Community() {
                   </>
                 )}
               </span>{" "}
+              <br />
               공동체입니다!
             </CellDesc>
-            <CellDesc>{ageDesc}</CellDesc>
+            <CellDesc2>{ageDesc}</CellDesc2>
           </Cell>
         ))}
         <ContentWrap>

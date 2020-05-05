@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import bibleImg from "../img/bible.png";
 import birdImg from "../img/bird.png";
+import withImg from "../img/with.png";
 import handsImg from "../img/hands.png";
 import heartsImg from "../img/hearts.png";
 import { StyledDiv } from "../customComponent";
@@ -108,7 +109,7 @@ const whatWeDo = [
 		그리스도의 장성한 분량까지 주를 알아가고, 자라가기를 함께 꿈꾸고 있어요`,
   },
   {
-    src: birdImg,
+    src: withImg,
     title: "함께 울고 웃는 공동체",
     desc: `우리는 절대 혼자 힘으로 살아갈 수 없어요! 
     함께 기뻐하고 슬퍼하며 삶을 공유하는 동역자들이 옆에 있을 때 
@@ -116,7 +117,7 @@ const whatWeDo = [
   },
   {
     src: birdImg,
-    title: "증거해요",
+    title: "증거하는 공동체",
     desc: `땅 끝까지 이르러 내 증인이 되리라(행 1:8)’라는 말씀이 우리의 때에 이루어 질 것이라 믿고 있어요!
 			부족한 우리의 말과 삶을 통해 예수님을 증거하고 자랑할 수 있기를 기대합니다`,
   },

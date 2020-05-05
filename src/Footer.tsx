@@ -26,9 +26,6 @@ const Footer = () => {
   return (
     <FooterWrapper className="Footer-wrapper">
       <FooterContent>
-        <FooterDescription fontSize="small">
-          © 2020. ILURE. All rights reserved.
-        </FooterDescription>
         <FooterDescription fontSize="medium" fontWeight="lighter">
           대한예수교장로회 자양교회
         </FooterDescription>
@@ -38,7 +35,6 @@ const Footer = () => {
         <FooterDescription fontSize="smaller" fontWeight="lighter">
           T. 02.455.6071 &nbsp;&nbsp;|&nbsp;&nbsp; 위임목사: 이철규
         </FooterDescription>
-        <FooterDescription fontSize="small">그리고 우리들</FooterDescription>
       </FooterContent>
     </FooterWrapper>
   );
