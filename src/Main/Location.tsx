@@ -20,11 +20,15 @@ const LocationTitle = styled(StyledDiv)`
 `;
 const LoactionMap = styled.div<{ backgroundImg: string }>`
   margin: 0;
-  padding-bottom: 70%;
+  padding-bottom: 80%;
   background-image: url(${(props) => props.backgroundImg});
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (min-width: 768px) {
+    padding-bottom: 50%;
+  }
 `;
 
 const HowToCome = styled(StyledDiv)`
