@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import locationImg from "../img/location.jpeg";
+import locationImg from "../img/location2.jpeg";
 import { StyledDiv } from "../customComponent";
 import BusSVG from "../SVG/Bus";
 import SubwaySVG from "../SVG/Subway";
