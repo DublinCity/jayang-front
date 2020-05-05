@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const COLOR = {
-  YELLOW: "#fdc70b",
+  YELLOW: "#F0C41B",
   SKY_BLUE: "#87a9d6",
   OCEAN_BLUE: "#4b86d4",
   DEEP_BLUE: "#1567d3",

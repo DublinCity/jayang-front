@@ -25,6 +25,10 @@ const IntroWrapper = styled.div`
     background-image: url(${mainMobileBgImg});
     background-size: cover;
   }
+
+  @supports not (-webkit-overflow-scrolling: touch) {
+    background-attachment: fixed;
+  }
 `;
 
 const RotateRect = styled.div`
@@ -42,6 +46,9 @@ const RotateRect = styled.div`
     width: 100%;
     top: 0;
     left: 0;
+  }
+  @supports not (-webkit-overflow-scrolling: touch) {
+    border: none;
   }
 `;
 
