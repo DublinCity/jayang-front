@@ -30,10 +30,12 @@ const detailLinkInfo = [
 ];
 
 const CommunityWrap = styled.div`
+  height: 100vh;
   display: flex;
   overflow: hidden;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   border-top: ${(props) => `4px solid ${props.theme.COLOR.GRAY_7}`};
 `;
@@ -47,6 +49,7 @@ const Title = styled.div`
   font-size: 1.7rem;
   font-family: ${(props) => props.theme.FONT.DO_HYEON};
   flex-direction: column;
+  margin-top: 5rem;
 
   @media (min-width: 768px) {
   }
@@ -68,9 +71,13 @@ const DetailLink = styled(Link)`
 
 const DetailLinkContent = styled(StyledDiv)`
   position: relative;
-  padding-bottom: 30vh;
+  padding-bottom: 20vh;
   display: flex;
   background-color: ${(props: { bgColor: string }) => props.bgColor};
+
+  @media (min-width: 768px) {
+    padding-bottom: 30vh;
+  }
 `;
 
 const ContentWrap = styled(StyledDiv)`
